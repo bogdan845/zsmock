@@ -1,8 +1,8 @@
 import React from "react";
 
 
-export function FQ() {
+export function ForumQuestions() {
     return (
-        <div>FQ</div>
+        <div>Forum and Questions</div>
     )
 }

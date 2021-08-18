@@ -1,10 +1,9 @@
-import {get} from "../services"
+import {get} from "../index";
 
-
-enum FetchLatestNews {
+export enum FetchNews {
     POSTS = "/latest_news"
 }
 
 export const fetchLatestNews = () => {
-    return get(FetchLatestNews.POSTS);
+    return get(FetchNews.POSTS);
 }

@@ -1,0 +1,44 @@
+.footer {
+  $self: &;
+  background-color: $grey;
+  color: #fff;
+  padding: 20px 0;
+
+  &-bottom {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+  }
+
+  &-contract {
+    color: #fff;
+    //text-decoration: none;
+    transition: .25s ease-in-out;
+
+    &:hover {
+      color: $yellow;
+    }
+  }
+
+  &-socials {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 5px 15px;
+    }
+
+    li i {
+      color: #fff;
+      font-size: 20px;
+      transition: .25s ease-in-out;
+
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+}

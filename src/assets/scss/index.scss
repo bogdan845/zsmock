@@ -1,0 +1,15 @@
+@import "./vars";
+@import "./typography";
+@import "./repeatable";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+/*
+pages
+*/
+@import "./pages/index.pages";
+
+/*
+components
+*/
+@import "./components/index.components";
+

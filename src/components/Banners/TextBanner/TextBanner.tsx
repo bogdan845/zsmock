@@ -1,31 +1,13 @@
 import React from 'react';
-import styled from "styled-components";
-import {ITextBanner, ITextBannerLabelColor} from "../../../../utils/interfaces/textBanner/textBanner";
+import {ITextBanner} from "../../../utils/interfaces/textBanner/textBanner";
+import {SectionTitle} from "../../Styled/SectionTitle/SectionTitle";
 
-const Title = styled.h2`
-
-`
-
-
-
-export function TextBanner(
-    {
-        label,
-        labelColor = ITextBannerLabelColor.green,
-        labelLink,
-        text,
-        btnLabel,
-        btnLink
-    }: ITextBanner) {
+export function TextBanner(props: ITextBanner) {
     return (
         <div className="r-banner text">
-            <h2 className={`r-banner__text-title r-title ${labelColor}`}>
-                <a href={labelLink} target="_self">
-                    {label}
-                </a>
-            </h2>
-            <p>{text}</p>
-            <a className="r-button green r-banner__text-btn" href={btnLink} target="_self">{btnLabel}</a>
+            <SectionTitle color={props.labelColor} label={props.label} link={props.labelLink}/>
+            <p>{props.text}</p>
+            <a className="r-button green r-banner__text-btn" href={props.btnLink} target="_self">{props.btnLabel}</a>
         </div>
     )
 }

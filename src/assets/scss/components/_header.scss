@@ -1,0 +1,129 @@
+.header {
+  background-color: $green;
+  color: #fff;
+  padding: 20px 0;
+
+  // main menu
+  &-menu {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    justify-content: space-around;
+
+    &__item {
+      padding: 5px 10px;
+      font-size: 0.875rem;
+
+      &.with-dropdown {
+        position: relative;
+      }
+
+      > a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+
+    &__dropdown-btn {
+      border: 1px solid #fff;
+      line-height: 1;
+      padding: 0 5px;
+
+      @include media-breakpoint-up(lg) {
+        border: none;
+      }
+    }
+  }
+
+
+  // sub menu
+  &-menu__sub {
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0 10px 10px 10px;
+    background-color: $green;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    &-item {
+      margin-top: 10px;
+      font-size: 0.875rem;
+
+      > a {
+        text-decoration: none;
+        color: #fff;
+
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  }
+}
+
+
+/*
+login
+*/
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__icon {
+    font-size: 30px;
+  }
+
+  &__btn {
+    border: 2px solid #fff;
+    padding: 2px 10px;
+    color: $yellow;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      border-color: $yellow
+    }
+  }
+}
+
+
+.lang {
+  margin-top: 10px;
+  font-size: 0.875rem;
+
+  select {
+    font-size: 0.875rem;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    option {
+      color: inherit;
+      background-color: $green;
+      border: none;
+    }
+  }
+
+  label {
+    padding-right: 5px;
+  }
+}

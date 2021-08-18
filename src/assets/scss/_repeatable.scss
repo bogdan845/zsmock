@@ -1,0 +1,179 @@
+// button
+.r-button {
+  text-decoration: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  transition: .25s ease-in-out;
+  font-size: 1.25rem;
+  display: inline-block;
+  border: 2px solid transparent;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  &.green {
+    background-color: $green;
+    color: $yellow;
+    border-color: $green;
+
+    &:hover {
+      background-color: transparent;
+      color: $green;
+    }
+  }
+}
+
+// banner
+
+.r-banner {
+  $self: &;
+
+  // text banner
+  &.text {
+    text-align: center;
+    font-size: 1.125rem;
+    padding: 30px 0;
+  }
+
+  &__text-title--link {
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      #{$self}__text-title:after {
+        width: 130px;
+      }
+    }
+  }
+
+  &__text-title {
+    margin-bottom: 30px;
+  }
+
+  &__text-btn {
+    margin-top: 20px;
+  }
+
+  // img banner
+  &.img {
+    position: relative;
+    text-align: center;
+  }
+
+  &__img-title {
+    //color: $yellow;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: $green;
+    //background-color: rgba(34, 137, 45, 1);
+    //background: rgb(255, 255, 255);
+    //background: linear-gradient(0deg, rgba(34, 137, 45, 0.1) 0%, rgba(34, 137, 45, 1) 100%);
+
+    &:after {
+      bottom: 20px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    &.contain {
+      object-fit: contain;
+      height: 435px;
+    }
+
+    &.cover {
+      object-fit: cover;
+      object-position: center center;
+      max-height: 615px;
+      min-height: 435px;
+    }
+  }
+}
+
+// grey bg
+.r-grey-bg {
+  background-color: #e3e3e3;
+}
+
+.r-green-bg {
+  background-color: $green;
+}
+
+
+
+
+
+
+// old r-title before (styled component)
+
+// title
+//.r-title {
+//  text-align: center;
+//
+//  a {
+//    text-decoration: none;
+//    position: relative;
+//    display: inline-block;
+//    padding-bottom: 20px;
+//
+//
+//    &:after {
+//      content: "";
+//      position: absolute;
+//      bottom: 0;
+//      left: 50%;
+//      transform: translateX(-50%);
+//      height: 4px;
+//      width: 100px;
+//      transition: .25s ease-in-out;
+//    }
+//
+//    &:hover:after {
+//      width: 140px;
+//    }
+//  }
+//
+//
+//  &.green {
+//    color: $green;
+//
+//    a {
+//      color: $green;
+//
+//      &:after {
+//        background-color: $green;
+//      }
+//    }
+//  }
+//
+//  &.yellow {
+//    color: $yellow;
+//
+//    a {
+//      color: $yellow;
+//
+//      &:after {
+//        background-color: $yellow;
+//      }
+//    }
+//  }
+//
+//  &.white {
+//    color: #fff;
+//
+//    a {
+//      color: #fff;
+//
+//      &:after {
+//        background-color: #fff;
+//      }
+//    }
+//  }
+//}
