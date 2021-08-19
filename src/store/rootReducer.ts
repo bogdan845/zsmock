@@ -1,8 +1,11 @@
-import {applyMiddleware} from "redux";
 import {combineReducers} from "redux";
-import {newsReducer} from "./news/reducer";
+import {INewsState, latestNewsReducer} from "./news/reducer";
+
+export interface IRootState {
+    latestNews: INewsState;
+}
 
 
 export const rootReducer = combineReducers({
-    news: newsReducer
+    latestNews: latestNewsReducer,
 })

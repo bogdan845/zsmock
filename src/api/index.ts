@@ -1,8 +1,5 @@
 import axios from "axios";
-import {AxiosInstance, AxiosResponse} from "axios";
-
-
-const BASE_URL = "http://localhost:3000/";
+import {AxiosInstance} from "axios";
 
 const axiosInstance: AxiosInstance = axios.create();
 
@@ -23,7 +20,7 @@ const post = (url: string, payload = {}): Promise<any> => {
 }
 
 
-export {BASE_URL, get, post};
+export {get, post};
 
 
 

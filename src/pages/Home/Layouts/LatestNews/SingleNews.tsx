@@ -1,5 +1,7 @@
 import React from "react";
+// import htmlReactParser from  "html-react-parser"
 
+import htmlReactParser from "html-react-parser"
 interface IProps {
     img: string;
     label: string;
@@ -18,7 +20,7 @@ export function SingleNews({img, label, link, excerpt}: IProps) {
                 </a>
                 <div className="latest-post__content">
                     <h5 className="latest-post__title"><a href="latest-post__title">{label}</a></h5>
-                    <p>{excerpt}</p>
+                    {htmlReactParser(excerpt)}
                 </div>
             </div>
         </div>

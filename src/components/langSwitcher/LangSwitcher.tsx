@@ -3,9 +3,9 @@ import React from "react";
 /*
 * images
 * */
-import ua from "../../assets/images/ua.jpg"
-import uk from "../../assets/images/uk.jpg"
-import ru from "../../assets/images/ru.jpg"
+// import ua from "../../assets/images/ua.jpg"
+// import uk from "../../assets/images/uk.jpg"
+// import ru from "../../assets/images/ru.jpg"
 
 
 export function LangSwitcher() {

@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.scss';
 import {BrowserRouter as Router} from "react-router-dom";
-import {AppRouting} from "./routes/AppRouting";
+import AppRouting from "./routes/AppRouting";
+import {Provider} from "react-redux";
+import {store} from "./store/store";
+
 
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <AppRouting/>
-            </div>
-        </Router>
+        <Provider store={store}>
+            <Router>
+                <div className="App">
+                    <AppRouting/>
+                </div>
+            </Router>
+        </Provider>
     );
 }
 

@@ -1,4 +1,4 @@
-import latestNews from "../news";
+import latestNews from "../news/latest";
 
 const api = {
     latestNews

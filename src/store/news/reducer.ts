@@ -1,10 +1,10 @@
 import {handleActions} from "redux-actions";
-import {NewsAction} from "./sagas/actions";
-import {RequestStatus, RequestType} from "../request/requestStatus";
+import {NewsAction} from "./latest/sagas/actions";
+import {RequestStatus} from "../request/requestStatus";
 
 
 export interface INewsState {
-    status: RequestType;
+    status: string
     posts: [];
 }
 
@@ -13,12 +13,20 @@ const initialState = {
     posts: []
 }
 
-export const newsReducer = handleActions({
-    [NewsAction.FETCH]: (state, action) => {
-        console.log("news", action.payload);
+export const latestNewsReducer = handleActions({
+    [NewsAction.LATEST_NEWS_REQUEST_STATUS]: (state, {payload}) => {
+        // console.log("status handler", payload)
         return {
             ...state,
-            ...action.payload
+            status: payload.status
+        }
+    },
+
+    [NewsAction.LATEST_NEWS_POSTS]: (state, {payload}) => {
+        // console.log("posts handler", payload)
+        return {
+            ...state,
+            posts: payload.posts
         }
     }
 }, initialState);
