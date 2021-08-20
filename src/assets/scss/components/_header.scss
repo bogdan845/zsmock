@@ -1,7 +1,16 @@
+
+.logo {
+  img {
+    width: auto;
+    max-height: 150px;
+  }
+}
+
+
 .header {
   background-color: $green;
   color: #fff;
-  padding: 20px 0;
+  padding: 5px 0;
 
   // main menu
   &-menu {

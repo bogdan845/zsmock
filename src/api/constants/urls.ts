@@ -8,6 +8,8 @@ export const APP_URLS = {
     },
     news: {
         latest: WORDPRESS_API + '/posts?categories=2&_embed&per_page=3&context=view',
-        all: WORDPRESS_API + '/posts?categories=2&_embed&per_page=3&context=view'
-    }
+        all: WORDPRESS_API + '/posts?categories=2&_embed&per_page=3&context=view',
+        single: WORDPRESS_API + "/posts?categories=2&_embed&per_page=1&context=view&slug="
+        // posts?categories=2&_embed&per_page=1&context=view&slug=podarunkovi-sertifikati
+    },
 }

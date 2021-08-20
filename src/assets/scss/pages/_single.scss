@@ -1,0 +1,21 @@
+.single {
+  padding: 50px 0;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+
+  &__title {
+  }
+
+  &__date {
+    font-size: 0.875rem;
+  }
+
+
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto 20px;
+  }
+}

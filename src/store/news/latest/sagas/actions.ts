@@ -1,25 +1,40 @@
 import {createAction} from "redux-actions";
 import {INewsState} from "../../reducer";
+import {PostPreviewModel} from "../../../../utils/models/Post/Preview";
 
 export enum NewsAction {
-    LATEST_NEWS_REQUEST_STATUS = "LATEST_NEWS_REQUEST_STATUS",
-    LATEST_NEWS_POSTS = "LATEST_NEWS_POSTS",
-    LATEST_NEWS = "LATEST_NEWS"
+    REQUEST_STATUS = "REQUEST_STATUS",
+    FETCH_LATEST_NEWS = "FETCH_LATEST_NEWS",
+    FETCH_NEWS = "FETCH_NEWS",
+    SINGLE_POST = "SINGLE_POST",
+    NEWS = "NEWS"
 }
 
-type LatestNewsStatus = Omit<INewsState, "posts">
-type LatestNewsPosts = Omit<INewsState, "status">
+type LatestNewsStatus = Omit<INewsState, "latestNews" | "news" | "singlePost">;
+type LatestNews = Omit<INewsState, "status" | "news" | "singlePost">;
+type SinglePost = Omit<INewsState, "status" | "news" | "latestNews">;
+type News = Omit<INewsState, "status" | "latestNews" | "singlePost">;
 
-export const latestNewsStatusRequest = createAction(
-    NewsAction.LATEST_NEWS_REQUEST_STATUS,
+export const newsStatusRequest = createAction(
+    NewsAction.REQUEST_STATUS,
     (payload: LatestNewsStatus) => payload
 );
 
-export const latestNewsPosts = createAction(
-    NewsAction.LATEST_NEWS_POSTS,
-    (payload: LatestNewsPosts) => payload
-)
+export const latestNewsFetcher = createAction(
+    NewsAction.FETCH_LATEST_NEWS,
+    (payload: LatestNews) => payload
+);
 
-export const fetchNews = createAction(
-    NewsAction.LATEST_NEWS
-)
+export const singlePost = createAction(
+    NewsAction.SINGLE_POST,
+    (payload: SinglePost) => payload
+);
+
+export const newsFetcher = createAction(
+    NewsAction.FETCH_NEWS,
+    // (payload: News) => payload
+);
+
+export const news = createAction(
+    NewsAction.NEWS
+);

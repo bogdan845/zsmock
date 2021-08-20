@@ -1,2 +1,6 @@
-export const HOME_URL = "/";
-export const PERSONAL_ACC = "/acc";
+export const APP_ROUTES = {
+    homeUrl: "/",
+    personalAcc: "/acc",
+    news: "/news",
+    singleNews: "/news/:slug"
+}

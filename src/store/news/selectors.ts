@@ -1,4 +1,6 @@
 import {IRootState} from "../rootReducer";
 
-export const latestNewsPostsSelector = (state : IRootState) => state.latestNews.posts;
-export const latestNewsStatusSelector = (state : IRootState) => state.latestNews.status;
+export const latestNewsStatusSelector = (state: IRootState) => state.news.status;
+export const latestNewsSelector = (state: IRootState) => state.news.latestNews;
+export const newsSelector = (state: IRootState) => state.news.news;
+export const singlePostSelector = (state: IRootState) => state.news.singlePost;

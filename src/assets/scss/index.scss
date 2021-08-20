@@ -13,3 +13,14 @@ components
 */
 @import "./components/index.components";
 
+
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+
+}

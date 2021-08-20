@@ -2,26 +2,23 @@ import React from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import {MainScreen} from "../screens/MainScreen";
 import {AccScreen} from "../screens/AccScreen";
-import {HOME_URL, PERSONAL_ACC} from "../utils/constants/pagesUrl/pagesUrl";
+import {APP_ROUTES} from "../utils/constants/pagesUrl/pagesUrl";
 // for routing test
 const isRegistered = false
 
-function AppRouting() {
+export function AppRouting() {
     return (
         <Switch>
             {!isRegistered
                 ? <>
                     {/*<Redirect exact to={`${HOME_URL}`}/>*/}
-                    <Route path={`${HOME_URL}`} component={MainScreen}/>
+                    <Route path={APP_ROUTES.homeUrl} component={MainScreen}/>
                 </>
                 : <>
-                    <Redirect exact to={`${PERSONAL_ACC}`}/>
-                    <Route path={`${PERSONAL_ACC}`} render={props => <AccScreen/>}/>
+                    <Redirect exact to={APP_ROUTES.personalAcc}/>
+                    <Route path={APP_ROUTES.personalAcc} component={AccScreen}/>
                 </>
             }
         </Switch>
     )
 }
-
-
-export default AppRouting;

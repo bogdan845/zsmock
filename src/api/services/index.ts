@@ -1,7 +1,8 @@
 import latestNews from "../news/latest";
-
+import singlePost from "../singlePost"
 const api = {
-    latestNews
+    latestNews,
+    singlePost
 }
 
 export default api
