@@ -1,13 +1,10 @@
 import {combineReducers} from "redux";
-import {INewsState, newsReducer} from "./news/reducer";
-import {ISinglePost, singlePostReducer} from "./singlePost/reducer";
+import {INewsStateBlog, newsReducer} from "./news/newsReducer";
 
 export interface IRootState {
-    news: INewsState;
-    singlePost: ISinglePost
+    news: INewsStateBlog;
 }
 
 export const rootReducer = combineReducers({
     news: newsReducer,
-    // singlePost: singlePostReducer,
 })

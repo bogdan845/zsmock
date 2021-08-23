@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {singlePostSelector} from "../../store/singlePost/selectors";
-import {singlePost} from "../../store/singlePost/sagas/actions";
+import {singlePostSelector} from "../../store/news/newsSelectors";
+import {singlePost} from "../../store/news/sagas/singlePost/singlePostActions";
 import htmlReactParser from "html-react-parser";
 
 interface IUrlParams {
@@ -11,17 +11,15 @@ interface IUrlParams {
 }
 
 export default function SinglePost() {
-
-    const {slug}: IUrlParams = useParams();
     const dispatch = useDispatch();
+    const {slug}: IUrlParams = useParams();
 
     useEffect(() => {
         dispatch(singlePost(slug));
-    }, [dispatch])
+    }, [dispatch, slug])
 
-    const post = useSelector(singlePostSelector);
 
-    console.log(typeof post.content)
+    const post: any = useSelector(singlePostSelector);
 
     return (
         <div className="container">

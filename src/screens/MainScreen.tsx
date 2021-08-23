@@ -17,6 +17,7 @@ export function MainScreen() {
                 <Switch>
                     <Route exact path={APP_ROUTES.news} component={Blog}/>
                     <Route exact path={APP_ROUTES.singleNews} component={SinglePost}/>
+                    <Route exact path={APP_ROUTES.pagination} component={Blog}/>
                 </Switch>
             </main>
             <Footer copyright={"Зелений Слон 7 © 2005"} contract={"Договір публічної оферти"} contractLink={"#"}/>

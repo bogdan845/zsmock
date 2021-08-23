@@ -6,7 +6,7 @@ import React from 'react';
 import {Offers} from "./Layouts/Offers";
 import {CarPark} from "./Layouts/CarPark";
 import {Services} from "./Layouts/Services";
-import {LatestNews} from "./Layouts/LatestNews/Container";
+import {LatestNews} from "./Layouts/LatestNews/LatestNews";
 import {OurBenefits} from "./Layouts/OurBenefits/OurBenefits";
 
 

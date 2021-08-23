@@ -1,28 +1,24 @@
 import React, {useEffect, memo} from "react";
-import {PostPreview} from "./PostPreview";
 import {SectionTitle} from "../../../../components/Styled/SectionTitle/SectionTitle";
 import {COLOR} from "../../../../components/Styled/constants/colors/colors";
 import {useDispatch} from "react-redux";
-import {news, newsFetcher} from "../../../../store/news/latest/sagas/actions";
 import {useSelector} from "react-redux";
-import {latestNewsSelector} from "../../../../store/news/selectors";
+import {latestNewsSelector} from "../../../../store/news/newsSelectors";
+import {PostPreviewModel} from "../../../../utils/models/Post/DefaultPreview";
+import {PostPreview} from "./PostPreview";
 import {APP_ROUTES} from "../../../../utils/constants/pagesUrl/pagesUrl";
-import {PostPreviewModel} from "../../../../utils/models/Post/Preview";
-import {store} from "../../../../store/store";
+import {latestNews} from "../../../../store/news/sagas/latest/latestNewsActions";
 
 const checkRerender = (prev: any, next: any) => prev.length === next.length;
 
 export const LatestNews = memo(function () {
     const dispatch = useDispatch();
-    const posts = useSelector(latestNewsSelector, checkRerender);
 
     useEffect(() => {
-        dispatch(news());
+        dispatch(latestNews());
     }, [dispatch]);
 
-
-    // console.log('POSTS >> ', posts);
-
+    const posts = useSelector(latestNewsSelector, checkRerender);
 
     const renderPosts = posts && posts.length
         ? posts.map((item, index) => {
