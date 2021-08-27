@@ -1,5 +1,5 @@
 /*
-* pages
+* pagesTitle
 * */
 import {Home} from "../../../pages/Home/Home";
 import {AboutUs} from "../../../pages/AboutUs/AboutUs";
@@ -17,56 +17,56 @@ import {IBaseMenuDropDown} from "../../interfaces/nav/nav";
 
 export const TOP_NAV: IBaseMenuDropDown[] = [
     {
-        label: "Головна",
+        label: "home",
         url: "/",
         component: Home,
         dropDown: [
             {
-                label: "Послуги в атобосі",
+                label: "busServices",
                 url: "/bus-services",
                 component: BusServices
             },
             {
-                label: "Медіасервіси",
+                label: "mediaServices",
                 url: "/media-services",
                 component: MediaServices
             }
         ]
     },
     {
-        label: "Про нас",
+        label: "aboutUs",
         url: "/about",
         component: AboutUs,
         dropDown: [
             {
-                label: "Послуги в атобосі",
+                label: "busServices",
                 url: "/bus-services",
                 component: BusServices
             },
             {
-                label: "Медіасервіси",
+                label: "mediaServices",
                 url: "/media-services",
                 component: MediaServices
             }
         ]
     },
     {
-        label: "Часті запитання",
+        label: "fq",
         url: "/fq",
         component: ForumQuestions
     },
     {
-        label: "Місця відправки",
+        label: "departurePlaces",
         url: "/departure-places",
         component: DeparturePlaces
     },
     {
-        label: "Вакансії",
+        label: "vacancies",
         url: "/vacancies",
         component: Vacancies
     },
     {
-        label: "Контаки",
+        label: "contacts",
         url: "/contacts",
         component: Contacts
     }

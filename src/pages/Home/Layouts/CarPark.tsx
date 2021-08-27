@@ -1,4 +1,5 @@
 import React from 'react';
+import {useTranslation} from "react-i18next";
 /*
 * components
 * */
@@ -10,8 +11,10 @@ import {ImgBanner} from "../../../components/Banners/ImgBanner/ImgBanner";
 import bus from "./../../../assets/images/bus.webp"
 import {COLOR} from "../../../components/Styled/constants/colors/colors";
 import {IBannerSize} from "../../../components/Banners/ImgBanner/ImgBanner";
+import {APP_URLS} from "../../../api/constants/urls";
 
-export function CarPark() {
+export function CarParkBlock() {
+    const {t} = useTranslation();
     return (
         <section className="">
             <div className="container-fluid p-0">
@@ -19,9 +22,9 @@ export function CarPark() {
                     <div className="col">
                         <ImgBanner
                             img={bus}
-                            label={"Наші переваги"}
+                            label={t("pages.home.carPark.label")}
                             labelColor={COLOR.white}
-                            labelLink={"#"}
+                            labelLink={APP_URLS.pages.carPark}
                             bannerSize={IBannerSize.cover}
                         />
                     </div>

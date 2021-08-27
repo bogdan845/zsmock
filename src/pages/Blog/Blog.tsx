@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {news} from "../../store/news/sagas/news/newsActions";
+import {blogNews} from "../../store/news/sagas/newsBlog/newsBlogActions";
 import {newsSelector} from "../../store/news/newsSelectors";
-import {BlogPostPreview} from "./Layouts/PostPreview";
 import {SinglePostModel} from "../../utils/models/Post/SingleView";
 import {useParams} from "react-router-dom";
+import {PostPreview} from "../../components/PostPreview/PostPreview";
+import {APP_URLS} from "../../api/constants/urls";
 
 interface IBlogUrlParams {
     page: string
@@ -15,13 +16,11 @@ interface IBlogUrlParams {
 export function Blog() {
     const {page}: IBlogUrlParams = useParams();
     const dispatch = useDispatch();
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(3);
     useEffect(() => {
-        dispatch(news(page ? Number(page) : currentPage));
-    }, [dispatch])
+        dispatch(blogNews(page ? Number(page) : currentPage));
+    }, [dispatch, currentPage, page])
     const {posts, maxNumPages} = useSelector(newsSelector);
-
-    console.log(page);
 
     /*
     * pagination start
@@ -29,17 +28,15 @@ export function Blog() {
     const nextPageHandler = () => {
         if (currentPage < maxNumPages) {
             setCurrentPage(prevState => prevState + 1)
-            dispatch(news(Number(page)))
+            dispatch(blogNews(Number(page)))
         }
-        console.log(currentPage);
     }
 
     const prevPageHandler = () => {
         if (0 < currentPage) {
             setCurrentPage(prevState => prevState - 1 === 0 ? 1 : prevState - 1)
-            dispatch(news(Number(page)))
+            dispatch(blogNews(Number(page)))
         }
-        console.log(currentPage);
     }
 
     /*
@@ -51,9 +48,10 @@ export function Blog() {
         ? posts.map((item, index) => {
             const post = new SinglePostModel(item);
             return (
-                <BlogPostPreview
+                <PostPreview
                     key={index}
                     img={post.img}
+                    url={APP_URLS.pages.news.routes.newsPage}
                     link={post.link}
                     date={post.date}
                     label={post.title}
@@ -71,8 +69,15 @@ export function Blog() {
                     {renderPosts}
                 </div>
             </div>
-            <a href={page ? "/news/page/" + (Number(page) - 1) : "/news/page/1"} onClick={prevPageHandler}>Prev</a>
-            <a href={page ? "/news/page/" + (Number(page) + 1) : "/news/page/2"} onClick={nextPageHandler}>Next</a>
+            <a href={page
+                ? APP_URLS.pages.news.routes.newsPage + "/page/" + (Number(page) - 1)
+                : APP_URLS.pages.news.routes.newsPage + "/page/1"}
+               onClick={prevPageHandler}>Prev</a>
+            <span> / </span>
+            <a href={page
+                ? APP_URLS.pages.news.routes.newsPage + "/page/" + (Number(page) + 1)
+                : APP_URLS.pages.news.routes.newsPage + "/page/2"}
+               onClick={nextPageHandler}>Next</a>
         </section>
     )
 }

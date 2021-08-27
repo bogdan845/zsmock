@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
-interface IProps {
-    activeId: number;
+interface IBaseProps {
     subMenuId: number
+    parentLabel: string
 }
 
-interface IPropsMenu extends IProps {
+interface IPropsMenu extends IBaseProps {
+    subMenuProps?: {
+        isActive: boolean,
+        id: number
+    }
     subMenu: {
         label: string;
         url: string;
@@ -14,16 +19,19 @@ interface IPropsMenu extends IProps {
 }
 
 
-export function Dropdown({activeId, subMenuId, subMenu}: IPropsMenu) {
-    const handleDropDown = activeId === subMenuId ? 'active' : '';
+export function Dropdown({subMenuProps, subMenuId, parentLabel, subMenu}: IPropsMenu) {
+    const {t} = useTranslation();
+
     const renderDropDown = subMenu.map((item, index) => (
         <li key={index} className="header-menu__sub-item">
-            <Link to={item.url}>{item.label}</Link>
+            <Link to={item.url}>
+                {t(`header.nav.${parentLabel}.dropDown.${item.label}`)}
+            </Link>
         </li>
-    ))
+    ));
 
     return (
-        <ul className={`header-menu__sub ${handleDropDown}`}>
+        <ul className={`header-menu__sub`}>
             {renderDropDown}
         </ul>
     )

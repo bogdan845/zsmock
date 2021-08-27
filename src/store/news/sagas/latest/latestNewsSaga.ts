@@ -1,16 +1,20 @@
 import {call, put, takeLatest} from "redux-saga/effects";
 import {RequestStatus} from "../../../request/requestStatus";
-import {latestNewsRequestStatus, latestNewsFetcher, LatestNewsActions} from "./latestNewsActions";
+import {LatestNewsActions, latestNewsFetcher, latestNewsRequestStatus} from "./latestNewsActions";
 import api from "../../../../api/services";
 
 
 function* latestNewsHandler(): Generator<any> {
     try {
         yield put(latestNewsRequestStatus({status: RequestStatus.LOADING}));
-        const fetchNews: any = yield call(api.latestNews.fetchLatestNews);
-        if (fetchNews?.data) {
-            yield put(latestNewsRequestStatus({status: RequestStatus.SUCCEED}))
-            yield put(latestNewsFetcher({latestNews: fetchNews.data}));
+        const fetchLatestNews: any = yield call(api.news.latestNews.fetchLatestNews);
+        if (fetchLatestNews?.data) {
+            yield put(latestNewsFetcher({
+                latestNews: {
+                    status: RequestStatus.SUCCEED,
+                    posts: fetchLatestNews.data
+                }
+            }));
         }
     } catch {
         yield put(latestNewsRequestStatus({status: RequestStatus.FAILED}))

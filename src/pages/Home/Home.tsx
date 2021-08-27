@@ -4,9 +4,9 @@ import React from 'react';
 * images
 * */
 import {Offers} from "./Layouts/Offers";
-import {CarPark} from "./Layouts/CarPark";
+import {CarParkBlock} from "./Layouts/CarPark";
 import {Services} from "./Layouts/Services";
-import {LatestNews} from "./Layouts/LatestNews/LatestNews";
+import {LatestNews} from "./Layouts/LatestNews";
 import {OurBenefits} from "./Layouts/OurBenefits/OurBenefits";
 
 
@@ -14,7 +14,7 @@ export function Home() {
     return (
         <>
             <Offers/>
-            <CarPark/>
+            <CarParkBlock/>
             <Services/>
             <LatestNews/>
             <OurBenefits/>

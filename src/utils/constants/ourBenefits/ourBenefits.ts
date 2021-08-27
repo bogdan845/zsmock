@@ -2,47 +2,47 @@ import {IOurBenefits} from "../../interfaces/ourBenefits/ourBenefits";
 
 export const OUR_BENEFITS: IOurBenefits[] = [
     {
-        label: "Підтримка",
+        label: "support",
         link: "#",
         icon: "bi bi-telephone-fill",
     },
     {
-        label: "Сучасний автопарк",
+        label: "carPark",
         link: "#",
         icon: "bi bi-minecart",
     },
     {
-        label: "Безпечна оплата",
+        label: "payment",
         link: "#",
         icon: "bi bi-credit-card-2-back-fill",
     },
     {
-        label: "Перевезення європейського рівня",
+        label: "transportation",
         link: "#",
         icon: "bi bi-star-fill",
     },
     {
-        label: "Зал очікування у місті Полтава",
+        label: "waiting",
         link: "#",
         icon: "bi bi-house-door",
     },
     {
-        label: "Чай та кава під час зупаники у м. Пирятин ",
+        label: "food",
         link: "#",
         icon: "bi bi-cup",
     },
     {
-        label: "Досвідчені водії",
+        label: "drivers",
         link: "#",
         icon: "bi bi-person-fill",
     },
     {
-        label: "Комфорт під час подорожі",
+        label: "comfort",
         link: "#",
         icon: "bi bi-check-lg",
     },
     {
-        label: "Понад 15 років досвіду",
+        label: "experience",
         link: "#",
         icon: "bi bi-emoji-sunglasses",
     }

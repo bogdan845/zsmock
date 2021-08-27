@@ -12,28 +12,44 @@
   color: #fff;
   padding: 5px 0;
 
+  &-menu__btn {
+    display: block;
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
   // main menu
   &-menu {
-    display: flex;
+    display: none;
+    //display: flex;
     flex-direction: row;
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+
 
     &__item {
       padding: 5px 10px;
       font-size: 0.875rem;
+      width: 100%;
 
       &.with-dropdown {
         position: relative;
+        width: calc(100% + 30px);
       }
 
       > a {
         color: #fff;
         text-decoration: none;
         font-weight: 600;
+        transition: .25s ease-in-out;
 
         &:hover {
           color: $yellow;
@@ -58,12 +74,12 @@
     z-index: 10;
     top: 100%;
     left: 0;
-    position: absolute;
+    //position: absolute;
     list-style-type: none;
     margin: 0;
     padding: 0 10px 10px 10px;
     background-color: $green;
-    display: none;
+    //display: none;
 
     &.active {
       display: block;
@@ -104,7 +120,7 @@ login
     border: 2px solid #fff;
     padding: 0 10px;
     color: $yellow;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     transition: .25s ease-in-out;
 
@@ -119,22 +135,42 @@ login
 .lang {
   margin-top: 10px;
   font-size: 0.875rem;
+  position: relative;
 
-  select {
-    font-size: 0.875rem;
-    color: #fff;
-    border: none;
-    outline: none;
-    background-color: transparent;
+  &__drop-down {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
 
-    option {
-      color: inherit;
-      background-color: $green;
-      border: none;
+    &.active {
+      display: flex;
+      flex-direction: column;
     }
   }
 
-  label {
+  &__drop-down-item {
+    border: 1px solid #fff;
+    outline: none;
+    border-radius: 5px;
+    background: $green;
+    color: #fff;
+    transition: .25s ease-in-out;
+
+    &.active {
+      background-color: #fff;
+      color: $green;
+      border-color: $green;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: $green;
+      border-color: $green;
+    }
+  }
+
+  span {
     padding-right: 5px;
   }
 }
