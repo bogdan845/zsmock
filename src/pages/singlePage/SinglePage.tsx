@@ -4,6 +4,9 @@ import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 import {SinglePostView} from "./Layout/SinglePostView";
 
+/*
+* interface start
+* */
 
 interface IProps {
     pageAction: (slug: string) => ReducerAction<any>
@@ -13,6 +16,11 @@ interface IProps {
 interface ISlug {
     slug: string
 }
+
+/*
+* interface end
+* */
+
 
 export function SinglePage({pageAction, selector}: IProps) {
     const {slug}: ISlug = useParams();

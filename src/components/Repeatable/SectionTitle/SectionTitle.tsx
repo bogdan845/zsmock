@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import {COLOR} from "../constants/colors/colors";
 
 const TitleWrap = styled.h2`
   text-align: center;
@@ -10,11 +9,11 @@ const TitleLink = styled.a`
   text-decoration: none;
   position: relative;
   display: inline-block;
-  padding-bottom: 20px;
-  color: ${props => props.theme};
+  padding-bottom: 1.25rem;
+  color: ${props => props.theme.main};
 
   &:hover {
-    color: ${props => props.theme};
+    color: ${props => props.theme.main};
   }
 
   &:after {
@@ -26,16 +25,18 @@ const TitleLink = styled.a`
     height: 4px;
     width: 100px;
     transition: .25s ease-in-out;
-    background-color: ${props => props.theme};
+    background-color: ${props => props.theme.main};
   }
 
   &:hover:after {
     width: 140px;
   }
-`;
+ `;
 
 TitleLink.defaultProps = {
-    theme: COLOR.green
+    theme: {
+        main: 'var(--green)'
+    }
 }
 
 interface IProps {
@@ -47,7 +48,13 @@ interface IProps {
 export function SectionTitle({color, label, link}: IProps) {
     return (
         <TitleWrap>
-            <TitleLink href={link} target="_self" theme={color}>{label}</TitleLink>
+            <TitleLink
+                href={link}
+                target="_self"
+                theme={color ? {main: color} : color}
+            >
+                {label}
+            </TitleLink>
         </TitleWrap>
     )
 }

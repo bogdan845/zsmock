@@ -9,7 +9,7 @@ import {ImgBanner} from "../../../components/Banners/ImgBanner/ImgBanner";
 * images
 * */
 import bus from "./../../../assets/images/bus.webp"
-import {COLOR} from "../../../components/Styled/constants/colors/colors";
+import {COLOR} from "../../../components/GlobalStyles/constants/colors/colors";
 import {IBannerSize} from "../../../components/Banners/ImgBanner/ImgBanner";
 import {APP_URLS} from "../../../api/constants/urls";
 

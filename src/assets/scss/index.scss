@@ -1,17 +1,17 @@
-@import "./vars";
-@import "./typography";
-@import "./repeatable";
+//@import "./vars";
+//@import "./typography";
+//@import "./repeatable";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 /*
 pagesTitle
 */
-@import "./pages/index.pages";
+//@import "./pages/index.pages";
 
 /*
 components
 */
-@import "./components/index.components";
+//@import "./components/index.components";
 
 
 
@@ -19,8 +19,4 @@ components
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-img {
-
 }

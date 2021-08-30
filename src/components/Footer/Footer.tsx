@@ -1,43 +1,107 @@
 import React from "react";
 import {SOCIALS} from "../../utils/constants/socials/socials";
 import {useTranslation} from "react-i18next";
+import {Link} from "react-router-dom";
+import styled from "styled-components";
+
+/*
+* styled start
+* */
+
+const FooterBox = styled.footer`
+    margin-top: auto;
+    background-color: var(--grey);
+    color: #fff;
+    padding: 20px 0;
+`;
+
+const BottomText = styled.div`
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    fot-size: 0.875rem;
+`;
+
+const Contracts = styled(Link)`
+    color: #fff;
+    text-decoration: none;
+    transition: .25s ease-in-out;
+    
+    &:hover {
+        color: var(--yellow);
+    }
+`;
+
+const Socials = styled.ul`
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+`;
+
+const SocialsItem = styled.li`
+    padding: 5px 15px;
+    i {
+        color: #fff;
+        font-size: 20px;
+        transition: .25s ease-in-out;
+        
+        &:hover {
+            color: var(--yellow);
+        }
+    }
+`;
+
+/*
+* styled end
+* */
+
+
+/*
+* interface start
+* */
 
 interface IProps {
     contractLink: string
 }
 
+/*
+* interface end
+* */
+
 export function Footer({contractLink}: IProps) {
     const {t} = useTranslation();
     const renderSocials = SOCIALS.map((item, index) => (
-        <li key={index}>
-            <a href={item.link} target="_self">
+        <SocialsItem key={index}>
+            <Link to={item.link}>
                 <i className={item.icon}></i>
-            </a>
-        </li>
+            </Link>
+        </SocialsItem>
     ));
 
     return (
-        <footer className="footer">
+        <FooterBox>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-6 align-self-center">
-                        <div className="footer-bottom">
+                        <BottomText>
                             <span
                                 className="footer-copyright">
                                 {t("footer.copyright.text") + "© 2005"} - {new Date().getFullYear()}
                             </span>
-                            <a className="footer-contract" href={contractLink}>
+                            <Contracts to={contractLink}>
                                 {t("footer.publicOffer.text")}
-                            </a>
-                        </div>
+                            </Contracts>
+                        </BottomText>
                     </div>
                     <div className="col-12 col-md-6 align-self-center">
-                        <ul className="footer-socials">
+                        <Socials className="footer-socials">
                             {renderSocials}
-                        </ul>
+                        </Socials>
                     </div>
                 </div>
             </div>
-        </footer>
+        </FooterBox>
     )
 }
