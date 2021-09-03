@@ -4,7 +4,7 @@ import {createGlobalStyle} from "styled-components";
 // import {BREAKPOINTS} from "./constants/breakpoints/breakpoints";
 
 export const GlobalStyles = createGlobalStyle`
-  html {
+  :root {
   
   /*
   * COLORS
@@ -17,6 +17,7 @@ export const GlobalStyles = createGlobalStyle`
     --black: #04160A;
     --grey: #4B4E4C;
     --light-grey: #e3e3e3;
+    --text-color: #4B4E4C;
     
     /*
     * GUTTERS
@@ -27,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     /*
     * TYPOGRAPHY
     */
+    font-size: 16px;
     
     h1, .h1 {
         font-size: 3.125rem;
@@ -50,9 +52,7 @@ export const GlobalStyles = createGlobalStyle`
 
     h6, .h6 {
         font-size: 1rem;
-    }
-    
-    font-size: 16px;
+    } 
   }
 `;
 

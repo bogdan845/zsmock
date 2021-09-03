@@ -16,12 +16,12 @@ export interface ISingleOffer {
 }
 
 export interface ISpecialOffersState {
-    offers: IOffers
+    blog: IOffers
     single: ISingleOffer
 }
 
 const initialState = {
-    offers: {
+    blog: {
         status: RequestStatus.IDLE,
         posts: []
     },
@@ -37,9 +37,9 @@ export const offersReducer = handleActions({
         // console.log("special offers fetching", payload)
         return {
             ...state,
-            offers: {
-                status: payload.offers.status,
-                posts: payload.offers.posts
+            blog: {
+                status: payload.blog.status,
+                posts: payload.blog.posts
             }
         }
     },

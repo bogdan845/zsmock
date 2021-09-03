@@ -1,6 +1,6 @@
 import React from "react";
 import {Route, Switch} from "react-router-dom";
-import {PAGE_ROUTES} from "../utils/constants/pageRoutes/pageRoutes";
+import {PAGE_ROUTES} from "../utils/constants/appNav/pages/pages";
 
 export function PageRouting() {
     const pageRoutes = PAGE_ROUTES.map((item, index) => {

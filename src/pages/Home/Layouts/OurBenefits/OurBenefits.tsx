@@ -1,25 +1,10 @@
 import React from 'react';
 import {OUR_BENEFITS} from "../../../../utils/constants/ourBenefits/ourBenefits";
-import {SingleBenefit} from "./SingleBenefit";
-import {SectionTitle} from "../../../../components/Repeatable/SectionTitle/SectionTitle";
-import {COLOR} from "../../../../components/GlobalStyles/constants/colors/colors";
-import {APP_URLS} from "../../../../api/constants/urls";
+import {SingleBenefit} from "./Single/SingleBenefit";
+import {SectionTitleLink} from "../../../../components/Repeatable/SectionTitleLink/SectionTitleLink";
 import {useTranslation} from "react-i18next";
 import {TitleWrapper} from "../../../../components/Repeatable/TitleWrapper/TitleWrapper";
-import styled from "styled-components";
-
-/*
-* styled start
-* */
-
-const OurBenefitsSection = styled.section`
-    background-color: var(--green);
-`
-
-/*
-* styled end
-* */
-
+import {Section} from "../../../../components/Repeatable/Section/Section";
 
 export function OurBenefits() {
     const {t} = useTranslation();
@@ -33,12 +18,11 @@ export function OurBenefits() {
     ));
 
     return (
-        <OurBenefitsSection>
+        <Section color={"var(--green)"}>
             <TitleWrapper>
-                <SectionTitle
+                <SectionTitleLink
                     label={t("pages.home.benefits.label")}
-                    link={APP_URLS.pages.benefits}
-                    color={COLOR.white}
+                    color={"#fff"}
                 />
             </TitleWrapper>
             <div className="container">
@@ -46,6 +30,6 @@ export function OurBenefits() {
                     {renderBenefits}
                 </div>
             </div>
-        </OurBenefitsSection>
+        </Section>
     )
 }

@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-/*
-* styled start
-* */
 
 const TitleBox = styled.div`
     padding: 1.25rem var(--gutter);
@@ -16,23 +13,12 @@ TitleBox.defaultProps = {
     }
 }
 
-/*
-* styled end
-* */
-
-
-/*
-* interface start
-* */
 
 interface IProps {
     children: JSX.Element;
     background?: string;
 }
 
-/*
-* interface end
-* */
 
 export function TitleWrapper({background, children}: IProps) {
     return (

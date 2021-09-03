@@ -4,7 +4,6 @@ import api from "../../../../api/services";
 import {RequestStatus} from "../../../request/requestStatus";
 
 function* newsHandler(action: any): Generator<any> {
-    console.log(action.payload);
     try {
         yield  put(blogNewsRequestStatus({status: RequestStatus.LOADING}));
         const fetchNews: any = yield call(api.news.blog.fetchAllNews, action.payload);

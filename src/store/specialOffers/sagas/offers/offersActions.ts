@@ -16,7 +16,7 @@ export const offersRequestStatus = createAction(
     (payload: OffersPostsStatus) => payload
 );
 
-export const fetchOffers = createAction(
+export const offersFetcher = createAction(
     OffersActions.FETCH_OFFERS,
     (payload: FetchOffersPosts) => payload
 );

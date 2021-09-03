@@ -4,9 +4,6 @@ import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 
-/*
-* styled start
-* */
 
 const FooterBox = styled.footer`
     margin-top: auto;
@@ -22,7 +19,7 @@ const BottomText = styled.div`
     fot-size: 0.875rem;
 `;
 
-const Contracts = styled(Link)`
+const Contracts = styled.a`
     color: #fff;
     text-decoration: none;
     transition: .25s ease-in-out;
@@ -53,22 +50,11 @@ const SocialsItem = styled.li`
     }
 `;
 
-/*
-* styled end
-* */
-
-
-/*
-* interface start
-* */
 
 interface IProps {
     contractLink: string
 }
 
-/*
-* interface end
-* */
 
 export function Footer({contractLink}: IProps) {
     const {t} = useTranslation();
@@ -90,7 +76,7 @@ export function Footer({contractLink}: IProps) {
                                 className="footer-copyright">
                                 {t("footer.copyright.text") + "© 2005"} - {new Date().getFullYear()}
                             </span>
-                            <Contracts to={contractLink}>
+                            <Contracts href={contractLink} target="_blank">
                                 {t("footer.publicOffer.text")}
                             </Contracts>
                         </BottomText>

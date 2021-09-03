@@ -1,2 +1,14 @@
-@import "home/home";
-@import "single";
+@import "contacts";
+
+.page {
+  padding: 20px;
+}
+
+.inner {
+  background-color: $light_grey;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 30px 20px 30px;
+  max-width: 1140px;
+  border-radius: 7px;
+}

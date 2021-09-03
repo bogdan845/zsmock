@@ -63,7 +63,7 @@ export const newsReducer = handleActions({
             singlePost: {
                 status: payload.singlePost.status,
                 post: new SinglePostModel(payload.singlePost.post),
-                // post: payload.singlePage.post
+                // post: payload.SinglePost.post
             }
         }
     },

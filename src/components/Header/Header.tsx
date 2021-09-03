@@ -1,14 +1,10 @@
 import React from "react";
-import {HeaderLogo} from "./HeaderLogo.";
+import {HeaderLogo} from "./Layouts/HeanderLogo/HeaderLogo.";
 import logo from "./../../assets/images/logo.png"
-import {Login} from "./Login/Login";
-import {TopNav} from "./Nav/Nav";
+import {Login} from "./Layouts/Login/Login";
+import {TopNav} from "./Layouts/Nav/Nav";
 import styled from "styled-components";
 
-
-/*
-* styled start
-* */
 
 const HeaderBox = styled.header`
     background-color: var(--green);
@@ -16,10 +12,6 @@ const HeaderBox = styled.header`
     padding: 5px 0;
     position: relative;
 `;
-
-/*
-* styled end
-* */
 
 
 export function Header() {

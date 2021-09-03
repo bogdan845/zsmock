@@ -1,4 +1,4 @@
-import {PostPreviewModel} from "./DefaultPreview";
+import {PostPreviewModel} from "./PostPreview";
 
 
 export class SinglePostModel extends PostPreviewModel {

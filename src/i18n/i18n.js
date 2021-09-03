@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import {UKRAINIAN} from "./ukrainian";
-import {ENGLISH} from "./english";
-import {RUSSIAN} from "./russian";
+import {UKRAINIAN} from "./ua";
+import {ENGLISH} from "./en";
+import {RUSSIAN} from "./ru";
 
 i18n
     // detect user language

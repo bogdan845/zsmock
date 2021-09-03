@@ -8,15 +8,16 @@ export enum SingleOfferActions {
     SINGLE_OFFER = "SINGLE_OFFER"
 }
 
+
 type SingleOfferStatus = Omit<ISingleOffer, "post">
-type FetchSingleOffer = Omit<ISpecialOffersState, "offers">
+type FetchSingleOffer = Omit<ISpecialOffersState, "blog">
 
 export const singleOfferRequestStatus = createAction(
     SingleOfferActions.SINGLE_OFFER_REQUEST_STATUS,
     (payload: SingleOfferStatus) => payload
 );
 
-export const fetchSingleOffer = createAction(
+export const singleOfferFetcher = createAction(
     SingleOfferActions.FETCH_SINGLE_OFFER,
     (payload: FetchSingleOffer) => payload
 );

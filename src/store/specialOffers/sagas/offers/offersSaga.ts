@@ -1,6 +1,6 @@
 import {call, put, takeLatest} from "redux-saga/effects";
 import {RequestStatus} from "../../../request/requestStatus";
-import {fetchOffers, OffersActions, offersRequestStatus} from "./offersActions";
+import {offersFetcher, OffersActions, offersRequestStatus} from "./offersActions";
 import api from "../../../../api/services";
 
 function* specialOffersHandler(): Generator<any> {
@@ -8,8 +8,8 @@ function* specialOffersHandler(): Generator<any> {
         yield put(offersRequestStatus({status: RequestStatus.LOADING}));
         const fetchPosts: any = yield call(api.specialOffers.offers.fetchOffers);
         if (fetchPosts.data) {
-            yield put(fetchOffers({
-                offers: {
+            yield put(offersFetcher({
+                blog: {
                     status: RequestStatus.SUCCEED,
                     posts: fetchPosts.data
                 }

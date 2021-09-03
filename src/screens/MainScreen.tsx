@@ -13,7 +13,7 @@ export function MainScreen() {
                 <MenuRouting/>
                 <PageRouting/>
             </main>
-            <Footer contractLink={"#"}/>
+            <Footer contractLink={"https://drive.google.com/file/d/1mOMDtPkLjt9T3nfUFrBPdj2FHHStcxwH/view"}/>
         </>
     )
 }
