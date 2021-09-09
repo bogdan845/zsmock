@@ -49,13 +49,13 @@ export function Blog() {
     useEffect(() => {
         dispatch(blogNews(currentPage));
     }, [dispatch, currentPage, page])
-    const {posts, maxNumPages} = useSelector(newsSelector);
+    const {posts, maxPages} = useSelector(newsSelector);
 
     /*
     * pagination start
     * */
     const nextPageHandler = () => {
-        if (currentPage < maxNumPages) {
+        if (currentPage < maxPages) {
             setCurrentPage(prevState => prevState + 1)
             dispatch(blogNews(Number(page)))
         }
@@ -109,7 +109,7 @@ export function Blog() {
                                      onClick={prevPageHandler}><ImArrowLeft/> Prev</PaginationBtn>
                     : <DisabledPaginationBtn disabled><ImArrowLeft/> Prev</DisabledPaginationBtn>
                 }
-                {Number(maxNumPages) - currentPage > 0
+                {Number(maxPages) - currentPage > 0
                     ? <PaginationBtn href={page
                         ? PAGES_URL.news.newsPage + "/page/" + (Number(page) + 1)
                         : PAGES_URL.news.newsPage + "/page/2"}

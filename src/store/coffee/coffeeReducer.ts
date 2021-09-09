@@ -10,7 +10,6 @@ const initialState = {
 
 export const coffeeReducer = handleActions({
     [CoffeePageActions.FETCH_COFFEE_PAGE]: (state, {payload}) => {
-        console.log("contacts page", payload);
         return {
             ...state,
             status: payload.status,

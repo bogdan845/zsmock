@@ -18,6 +18,7 @@ import drivers from "../drivers";
 import waitingHall from "../waitingHall";
 import coffee from "../coffee";
 import payment from "../payment";
+import tickets from "../serchTickets/tickets";
 
 
 const api = {
@@ -44,7 +45,10 @@ const api = {
     drivers,
     payment,
     coffee,
-    waitingHall
+    waitingHall,
+    searchTickets: {
+        tickets,
+    },
 }
 
-export default api
+export default api;

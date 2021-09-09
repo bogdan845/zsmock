@@ -10,7 +10,6 @@ const initialState = {
 
 export const paymentReducer = handleActions({
     [PaymentPageActions.PAYMENT_PAGE_PARK_PAGE]: (state, {payload}) => {
-        console.log("contacts page", payload);
         return {
             ...state,
             status: payload.status,

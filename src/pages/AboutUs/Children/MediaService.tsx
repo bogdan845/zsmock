@@ -15,7 +15,6 @@ export function MediaService() {
     }, [dispatch])
 
     const data: any = useSelector(mediaServicePageSelector);
-    // console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

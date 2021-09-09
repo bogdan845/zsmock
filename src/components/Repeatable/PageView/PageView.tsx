@@ -17,10 +17,10 @@ export const PageInner = styled.div`
 `;
 
 export const PageImg = styled.img`
-    max-height: 400px;
+    max-height: 250px;
     width: auto;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto 40px;
 `
 
 interface IProps {
@@ -33,10 +33,17 @@ export function PageView({content, title, img}: IProps) {
     return (
         <Page>
             <PageInner>
-                {title ? <SectionTitle color={"var(--text-color)"} label={title}/> : null}
+                {title
+                    ? <SectionTitle
+                        color={"var(--text-color)"}
+                        label={title}
+                        textAlign={"left"}
+                    />
+                    : null}
                 {img ? <PageImg src={img} alt={""}/> : null}
                 {content}
             </PageInner>
         </Page>
     )
 }
+

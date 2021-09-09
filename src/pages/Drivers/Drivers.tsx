@@ -14,8 +14,11 @@ export function Drivers() {
     }, [dispatch])
 
     const data: any = useSelector(driversPageSelector);
-    console.log(data);
     return (
-        <PageView content={htmlReactParser(data.page.content || "")}/>
+        <PageView
+            title={data.page.title}
+            img={data.page.img}
+            content={htmlReactParser(data.page.content || "")}
+        />
     )
 }

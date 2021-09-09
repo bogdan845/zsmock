@@ -18,6 +18,7 @@ export function WaitingHall() {
         <PageView
             content={htmlReactParser(data.page.content || "")}
             title={htmlReactParser(data.page.title || "")}
+            img={data.page.img}
         />
     )
 }

@@ -14,7 +14,6 @@ export function CarPark() {
     }, [dispatch])
 
     const data: any = useSelector(carParkPageSelector);
-    console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

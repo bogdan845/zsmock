@@ -14,7 +14,6 @@ export function Contacts() {
     }, [dispatch])
 
     const data: any = useSelector(contactsPageSelector);
-    // console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

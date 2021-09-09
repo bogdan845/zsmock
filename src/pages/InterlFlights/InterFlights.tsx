@@ -14,7 +14,6 @@ export function InterFlights() {
     }, [dispatch])
 
     const data: any = useSelector(interFlightsPageSelector);
-    // console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

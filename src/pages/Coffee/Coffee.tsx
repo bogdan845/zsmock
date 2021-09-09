@@ -14,9 +14,9 @@ export function Coffee() {
     }, [dispatch])
 
     const data: any = useSelector(coffeePageSelector);
-    // console.log(data);
     return (
         <PageView
+            img={data.page.img}
             content={htmlReactParser(data.page.content || "")}
             title={htmlReactParser(data.page.title || "")}
         />

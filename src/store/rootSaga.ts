@@ -18,6 +18,7 @@ import {coffeePageSaga} from "./coffee/sagas/coffeePageSaga";
 import {driversPageSaga} from "./dirvers/sagas/driversPageSaga";
 import {paymentPageSaga} from "./payment/sagas/paymentPageSaga";
 import {waitingHallPageSaga} from "./waitingHall/sagas/waitingHallPageSaga";
+import {ticketsSaga} from "./tickets/sagas/ticketsSaga";
 
 export default function* Saga() {
     yield all([
@@ -40,5 +41,6 @@ export default function* Saga() {
         driversPageSaga(),
         paymentPageSaga(),
         waitingHallPageSaga(),
+        ticketsSaga()
     ]);
 }

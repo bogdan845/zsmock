@@ -8,13 +8,13 @@ import {CarParkBlock} from "./Layouts/CarPark/CarPark";
 import {Services} from "./Layouts/Services/Services";
 import {LatestNews} from "./Layouts/LatestNews/LatestNews";
 import {OurBenefits} from "./Layouts/OurBenefits/OurBenefits";
-import {SearchTickets} from "./Layouts/SearhTickets/SearchTickets";
+import {Tickets} from "./Layouts/Tickets/Tickets";
 
 
 export function Home() {
     return (
         <>
-            <SearchTickets/>
+            <Tickets/>
             <Offers/>
             <CarParkBlock/>
             <Services/>

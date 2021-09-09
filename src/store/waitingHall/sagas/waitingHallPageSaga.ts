@@ -8,7 +8,6 @@ function* waitingHallPageHandler(): Generator<any> {
     try {
         yield put(waitingHallPageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.waitingHall.fetchWaitingHallPage);
-        console.log("saga")
         if (fetchPage.data) {
             yield put(waitingHallPageFetcher({
                 status: RequestStatus.SUCCEED,

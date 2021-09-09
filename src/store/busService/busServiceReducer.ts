@@ -10,7 +10,6 @@ const initialState = {
 
 export const busServiceReducer = handleActions({
     [BusServicePageActions.BUS_SERVICE_FETCH_PAGE]: (state, {payload}) => {
-        // console.log("bus services", payload);
         return {
             ...state,
             status: payload.status,

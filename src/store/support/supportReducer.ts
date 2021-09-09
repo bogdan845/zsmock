@@ -10,7 +10,6 @@ const initialState = {
 
 export const supportReducer = handleActions({
     [SupportPageActions.FETCH_SUPPORT_PAGE]: (state, {payload}) => {
-        // console.log("support", payload);
         return {
             ...state,
             status: payload.status,

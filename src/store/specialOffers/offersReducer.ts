@@ -34,7 +34,6 @@ const initialState = {
 
 export const offersReducer = handleActions({
     [OffersActions.FETCH_OFFERS]: (state, {payload}) => {
-        // console.log("special offers fetching", payload)
         return {
             ...state,
             blog: {
@@ -44,7 +43,6 @@ export const offersReducer = handleActions({
         }
     },
     [SingleOfferActions.FETCH_SINGLE_OFFER]: (state, {payload}) => {
-        // console.log("single offer action", payload);
         return {
             ...state,
             single: {

@@ -1,7 +1,7 @@
 
-import uaFlag from "../../../assets/images/flag_ua.jpg";
-import enFlag from "../../../assets/images/flag_en.jpg";
-import ruFlag from "../../../assets/images/flag_ru.jpg";
+import uaFlag from "../../../assets/images/flag_ua.png";
+import enFlag from "../../../assets/images/flag_en.png";
+import ruFlag from "../../../assets/images/flag_ru.png";
 
 export const LANGUAGES = [
     {

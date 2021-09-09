@@ -8,12 +8,11 @@ function* newsHandler(action: any): Generator<any> {
         yield  put(blogNewsRequestStatus({status: RequestStatus.LOADING}));
         const fetchNews: any = yield call(api.news.blog.fetchAllNews, action.payload);
         if (fetchNews.data) {
-            yield put(blogNewsRequestStatus({status: RequestStatus.SUCCEED}));
             yield put(blogNewsFetcher({
                 blog: {
                     status: RequestStatus.SUCCEED,
                     posts: fetchNews.data,
-                    maxNumPages: Number(fetchNews.headers["x-wp-totalpages"])
+                    maxPages: Number(fetchNews.headers["x-wp-totalpages"])
                 }
             }))
         }

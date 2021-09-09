@@ -16,6 +16,7 @@ import {coffeeReducer} from "./coffee/coffeeReducer";
 import {driversReducer} from "./dirvers/driversReducer";
 import {paymentReducer} from "./payment/paymentReducer";
 import {waitingHallReducer} from "./waitingHall/waitingHallReducer";
+import {ITicketsState, ticketsReducer} from "./tickets/ticketsReducer";
 
 export interface IRootState {
     news: INewsState;
@@ -34,6 +35,7 @@ export interface IRootState {
     drivers: IPage;
     payment: IPage;
     waitingHall: IPage;
+    tickets: ITicketsState
 };
 
 
@@ -54,4 +56,5 @@ export const rootReducer = combineReducers({
     drivers: driversReducer,
     waitingHall: waitingHallReducer,
     payment: paymentReducer,
+    searchTickets: ticketsReducer
 });

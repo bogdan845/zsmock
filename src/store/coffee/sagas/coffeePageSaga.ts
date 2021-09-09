@@ -7,7 +7,6 @@ function* carParkPagePageHandler(): Generator<any> {
     try {
         yield put(coffeePageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.coffee.fetchCoffeePage);
-        // console.log(fetchPage)
         if (fetchPage.data) {
             yield put(coffeePageFetcher({
                 status: RequestStatus.SUCCEED,

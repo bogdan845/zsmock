@@ -11,7 +11,6 @@ function* contactsPageHandler(): Generator<any> {
     try {
         yield put(frequentlyQPageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.frequentlyQ.fetchFrequentlyQ);
-        // console.log(fetchPage.data)
         if (fetchPage.data) {
             yield put(frequentlyQPageFetcher({
                 status: RequestStatus.SUCCEED,

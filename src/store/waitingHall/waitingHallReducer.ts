@@ -12,7 +12,6 @@ const initialState = {
 
 export const waitingHallReducer = handleActions({
     [WaitingHallPageActions.FETCH_WAITING_HALL_PAGE]: (state, {payload}) => {
-        console.log("waiting hall", payload);
         return {
             ...state,
             status: payload.status,

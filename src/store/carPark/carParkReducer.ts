@@ -10,7 +10,6 @@ const initialState = {
 
 export const carParkReducer = handleActions({
     [CarParkPageActions.FETCH_CAR_PARK_PAGE]: (state, {payload}) => {
-        console.log("contacts page", payload);
         return {
             ...state,
             status: payload.status,

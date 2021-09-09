@@ -7,7 +7,6 @@ function* busServicePageHandler(): Generator<any> {
     try {
         yield put(busServicePageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.busService.fetchBusServicePage);
-        // console.log(fetchPage.data)
         if (fetchPage.data) {
             yield put(busServicePageFetcher({
                     status: RequestStatus.SUCCEED,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEvent, SetStateAction, useEffect, useState} from "react";
 import styled from "styled-components";
 import {useTranslation} from "react-i18next";
 import busInterior from "../../../../assets/images/bus_interior.jpg"
@@ -11,12 +11,17 @@ import {
     Form,
     //FieldProps,
 } from 'formik';
-import {FieldSelect} from "./Layouts/FieldSelect/FieldSelect";
-import {Datepicker} from "./Layouts/Datepicker/Datepicker";
+import {SearchField} from "./Layouts/SearchField/SearchField";
+import {Datepicker} from "./Layouts/Datepicker/Datepicker"
+import {useDispatch, useSelector} from "react-redux";
+import {dispatch} from "../../../../store/store";
+import {ticketsSelector} from "../../../../store/tickets/ticketsSelector";
+import {tickets} from "../../../../store/tickets/sagas/ticketsActions";
+import {TicketsModel} from "../../../../utils/models/Tickets/tickets";
 
 
 const SearchSection = styled.section`
-    padding: 100px 0 50px;
+    padding: 100px 0 200px;
     color: #fff;
     background-image: url(${busInterior});
     background-color: rgba(34,137,45, 0.5);
@@ -28,20 +33,20 @@ const SearchSection = styled.section`
 const FormBox = styled(Form)`
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 `;
 
+
 const IconWrapper = styled.span`
-    padding: 10px;
+    padding: 13px;
     border-radius: 5px;
     background: rgba(0,0,0,0.5);
     cursor: pointer;
 `;
 
 const ButtonWrapper = styled.div`
-    margin-top: 3rem;
-    width: 100%;
+    margin-left: 20px;   
 `;
 
 const Button = styled.button`
@@ -50,11 +55,12 @@ const Button = styled.button`
     color: #fff;
     background: var(--green);
     border-radius: 5px;
-    font-size: 1.25rem;
-    padding: 5px 20px;
+    font-size: 1rem;
+    padding: 15px 20px;
     margin: 0 auto;
     transition: 0.25s linear;
     display: block;
+    border: 1px solid rgba(0,0,0,0.1);
     
     &:hover {
         color: var(--yellow);
@@ -62,31 +68,49 @@ const Button = styled.button`
 `;
 
 
-interface IFormValues {
-    startPoint: string;
-    endPoint: string;
+interface ICityId {
+    cityId: string;
+}
+
+export interface IFormValues {
+    from: ICityId;
+    to: ICityId;
     date: string;
+    time: string;
+    passengersAdultCount: number,
+    children: [],
+    transfer: string,
+    sort: string,
+    lang: string
 }
 
 interface IFormProps {
-    startPoint?: string;
-    endPoint?: string;
+    from?: ICityId;
+    to?: ICityId;
     date?: string;
+    time?: string;
+    passengersAdultCount?: number,
+    children?: [],
+    transfer?: string,
+    sort?: string,
+    lang?: string
 }
 
 
-export function SearchTickets() {
+export function Tickets() {
+
     const {t} = useTranslation();
+    const dispatch = useDispatch();
 
 
     const TicketsForm = (
         {
             values,
-            handleChange,
-            setFieldTouched,
-            setFieldValue,
-            isSubmitting,
-            handleSubmit
+            // handleChange,
+            // setFieldTouched,
+            // setFieldValue,
+            // isSubmitting,
+            // handleSubmit
         }: FormikProps<IFormValues>
     ) => {
         return (
@@ -95,22 +119,26 @@ export function SearchTickets() {
                     <div className="row">
                         <div className="col-12">
                             <FormBox>
-                                <FieldSelect
-                                    name={"startPoint"}
+                                <SearchField
+                                    name={"from.cityId"}
                                     data={DEPARTURE_ARRIVAL_PLACES}
                                     label={t("searchTickets.startPoint.label")}
+                                    selectedPoint={values.from.cityId}
                                 />
                                 <IconWrapper>
                                     <BsArrowLeftRight size={30}/>
                                 </IconWrapper>
-                                <FieldSelect
-                                    name={"endPoint"}
+                                <SearchField
+                                    name={"to.cityId"}
                                     data={DEPARTURE_ARRIVAL_PLACES}
                                     label={t("searchTickets.endPoint.label")}
+                                    selectedPoint={values.to.cityId}
                                 />
                                 <Datepicker name={"date"} value={new Date()}/>
                                 <ButtonWrapper>
-                                    <Button type="submit">{t("searchTickets.button.label")}</Button>
+                                    <Button type="submit">
+                                        {t("searchTickets.button.label")}
+                                    </Button>
                                 </ButtonWrapper>
                             </FormBox>
                         </div>
@@ -122,16 +150,13 @@ export function SearchTickets() {
 
 
     const EnhancedTicketsForm = withFormik<IFormProps, IFormValues>({
-        mapPropsToValues({endPoint, startPoint, date}) {
-            return {
-                startPoint: startPoint || "",
-                endPoint: endPoint || "",
-                date: date || ""
-            }
+        mapPropsToValues(values) {
+            const tickets = new TicketsModel(values);
+            // console.log(values);
+            return tickets.ReadyPayload();
         },
-        handleSubmit: values => {
-            console.log(values);
-            return values;
+        handleSubmit(values) {
+            return dispatch(tickets(values));
         },
     })(TicketsForm);
 

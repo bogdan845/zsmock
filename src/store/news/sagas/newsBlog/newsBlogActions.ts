@@ -8,7 +8,7 @@ export enum NewsBlogActions {
     NEWS_BLOG = "NEWS_BLOG"
 };
 
-type NewsBlogRequestStatus = Omit<INewsBlog, "posts" | "maxNumPages">;
+type NewsBlogRequestStatus = Omit<INewsBlog, "posts" | "maxPages">;
 type FetchBlogNews = Omit<INewsState, "singlePost" | "latestNews">;
 
 export const blogNewsRequestStatus = createAction(

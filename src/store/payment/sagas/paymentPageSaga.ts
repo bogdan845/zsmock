@@ -7,7 +7,6 @@ function* paymentPagePageHandler(): Generator<any> {
     try {
         yield put(paymentPageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.payment.fetchPaymentPage);
-        // console.log(fetchPage)
         if (fetchPage.data) {
             yield put(paymentPageFetcher({
                 status: RequestStatus.SUCCEED,

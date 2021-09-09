@@ -14,7 +14,6 @@ export function BusService() {
     }, [dispatch])
 
     const data: any = useSelector(busServicesPageSelector);
-    // console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

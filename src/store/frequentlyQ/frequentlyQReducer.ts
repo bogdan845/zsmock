@@ -17,7 +17,6 @@ const initialState : IFrequentlyQState  = {
 
 export const frequentlyQReducer = handleActions({
     [FrequentlyQPageActions.FREQUENTLY_Q_FETCH_PAGE]: (state, {payload}) => {
-        // console.log("frequentlyQ", payload);
         return {
             ...state,
             status: payload.status,

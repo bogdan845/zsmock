@@ -23,10 +23,11 @@ const DropDown = styled.div`
     display: none;
     padding: 5px 0;
     background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
     
     &:after {
         position: absolute;
-        top: -10px; 
+        top: -11px; 
         content: "";
         width: 0;
         left:  50%;
@@ -77,7 +78,7 @@ const CurrentLang = styled.span`
 `;
 
 const LangImg = styled.img`
-    width: 20px;
+    max-width: 15px;
     height: auto;
 `;
 

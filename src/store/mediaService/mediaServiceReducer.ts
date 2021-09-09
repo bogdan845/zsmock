@@ -10,7 +10,6 @@ const initialState = {
 
 export const mediaServiceReducer = handleActions({
     [MediaServicePageActions.MEDIA_SERVICE_FETCH_PAGE]: (state, {payload}) => {
-        // console.log("media services", payload);
         return {
             ...state,
             status: payload.status,

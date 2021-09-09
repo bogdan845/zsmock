@@ -17,6 +17,7 @@ export function Payment() {
     const data: any = useSelector(paymentPageSelector);
     return (
         <PageView
+            img={data.page.img}
             content={htmlReactParser(data.page.content || "")}
             title={htmlReactParser(data.page.title || "")}
         />

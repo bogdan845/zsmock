@@ -19,7 +19,7 @@ export interface ILatestNewsSingle {
 export interface INewsBlog {
     status: RequestType
     posts: []
-    maxNumPages: number
+    maxPages: number
 }
 
 export interface INewsState {
@@ -32,7 +32,7 @@ const initialState = {
     blog: {
         status: RequestStatus.IDLE,
         posts: [],
-        maxNumPages: 1
+        maxPages: 1
     },
     latestNews: {
         status: RequestStatus.IDLE,
@@ -47,7 +47,6 @@ const initialState = {
 
 export const newsReducer = handleActions({
     [LatestNewsActions.FETCH_LATEST_NEWS]: (state, {payload}) => {
-        // console.log("latest newsBlog handler", payload.latestNews);
         return {
             ...state,
             latestNews: {
@@ -57,24 +56,21 @@ export const newsReducer = handleActions({
         }
     },
     [SinglePostActions.FETCH_SINGLE_POST]: (state, {payload}) => {
-        // console.log("single news post handler", payload);
         return {
             ...state,
             singlePost: {
                 status: payload.singlePost.status,
                 post: new SinglePostModel(payload.singlePost.post),
-                // post: payload.SinglePost.post
             }
         }
     },
     [NewsBlogActions.FETCH_NEWS_BLOG]: (state, {payload}) => {
-        // console.log("newsBlog handler", payload)
         return {
             ...state,
             blog: {
                 status: payload.blog.status,
                 posts: payload.blog.posts,
-                maxNumPages: payload.blog.maxNumPages
+                maxPages: payload.blog.maxPages
             }
         }
     }

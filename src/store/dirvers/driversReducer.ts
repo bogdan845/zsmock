@@ -10,7 +10,6 @@ const initialState = {
 
 export const driversReducer = handleActions({
     [DriversPageActions.DRIVERS_COFFEE_PAGE]: (state, {payload}) => {
-        console.log("contacts page", payload);
         return {
             ...state,
             status: payload.status,

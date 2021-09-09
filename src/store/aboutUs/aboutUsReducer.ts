@@ -10,7 +10,6 @@ const initialState = {
 
 export const aboutUsReducer = handleActions({
     [AboutUsPageActions.ABOUT_US_FETCH_PAGE]: (state, {payload}) => {
-        // console.log("about us", payload);
         return {
             ...state,
             status: payload.status,

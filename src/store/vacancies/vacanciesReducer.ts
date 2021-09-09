@@ -12,7 +12,6 @@ const initialState = {
 
 export const vacanciesReducer = handleActions({
     [VacanciesPageActions.FETCH_VACANCIES_PAGE]: (state, {payload}) => {
-        // console.log("vacancies page", payload);
         return {
             ...state,
             status: payload.status,

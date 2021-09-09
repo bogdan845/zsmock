@@ -15,7 +15,6 @@ export function AboutUs() {
     }, [dispatch])
 
     const data: any = useSelector(aboutUsPageSelector);
-    console.log(data);
     return (
         <PageView content={htmlReactParser(data.page.content || "")}/>
     )

@@ -7,7 +7,6 @@ function* carParkPagePageHandler(): Generator<any> {
     try {
         yield put(carParkPageRequestStatus({status: RequestStatus.LOADING}));
         const fetchPage: any = yield call(api.carPark.fetchCarParkPage);
-        // console.log(fetchPage)
         if (fetchPage.data) {
             yield put(carParkPageFetcher({
                 status: RequestStatus.SUCCEED,

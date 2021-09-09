@@ -20,12 +20,11 @@ const ListItem = styled.div`
 `;
 
 
-
 export function FrequentlyQ() {
     const [opened, setOpened] = useState(0);
     const toggle = (index: any) => () => {
         if (opened === index) {
-            return setOpened((): SetStateAction<any> => null)
+            return setOpened(() => -1)
         }
         setOpened(index);
     }
@@ -39,7 +38,7 @@ export function FrequentlyQ() {
     const {list} = useSelector(frequentlyQPageSelector);
     const renderList = list && list.length
         ?
-        list.map((item, index: any) => {
+        list.map((item, index) => {
             const data = new FrequentlyQListModel(item);
             return (
                 <ListItem key={index} onClick={toggle(index)}>
