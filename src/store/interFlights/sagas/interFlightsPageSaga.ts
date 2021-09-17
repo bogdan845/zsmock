@@ -4,10 +4,10 @@ import {InterFlitghsPageActions, interFlightsPageFetcher, interFlightsPageReques
 import api from "../../../api/services";
 
 
-function* mediaServicePageHandler(): Generator<any> {
+function* mediaServicePageHandler(): Generator<{}> {
     try {
         yield put(interFlightsPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.interFlights.fetchInterFlightsPage);
+        const fetchPage: any = yield call(api.interFlights);
         if (fetchPage.data) {
             yield put(interFlightsPageFetcher({
                     status: RequestStatus.SUCCEED,

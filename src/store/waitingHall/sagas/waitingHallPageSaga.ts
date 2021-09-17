@@ -4,10 +4,10 @@ import {WaitingHallPageActions, waitingHallPageFetcher, waitingHallPageRequestSt
 import api from "../../../api/services";
 
 
-function* waitingHallPageHandler(): Generator<any> {
+function* waitingHallPageHandler(): Generator<{}> {
     try {
         yield put(waitingHallPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.waitingHall.fetchWaitingHallPage);
+        const fetchPage: any = yield call(api.waitingHall);
         if (fetchPage.data) {
             yield put(waitingHallPageFetcher({
                 status: RequestStatus.SUCCEED,

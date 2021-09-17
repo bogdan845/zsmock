@@ -4,10 +4,10 @@ import {LatestNewsActions, latestNewsFetcher, latestNewsRequestStatus} from "./l
 import api from "../../../../api/services";
 
 
-function* latestNewsHandler(): Generator<any> {
+function* latestNewsHandler(): Generator<{}> {
     try {
         yield put(latestNewsRequestStatus({status: RequestStatus.LOADING}));
-        const fetchLatestNews: any = yield call(api.news.latestNews.fetchLatestNews);
+        const fetchLatestNews: any = yield call(api.news.latestNews);
         if (fetchLatestNews?.data) {
             yield put(latestNewsFetcher({
                 latestNews: {

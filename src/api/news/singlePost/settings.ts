@@ -1,6 +1,13 @@
 import {get} from "../../index";
 import {APP_URLS} from "../../constants/urls";
 
-export const fetchSinglePost = (slug: string) => {
-    return get(APP_URLS.pages.news.single + slug);
+import {ILatestNewsSingle} from "../../../store/news/newsReducer";
+
+export interface IFetchSinglePost {
+    slug: string;
+    payload: ILatestNewsSingle
+}
+
+export const fetchSinglePost = ({slug, payload}: IFetchSinglePost) => {
+    return get(APP_URLS.pages.news.single + slug, payload);
 }

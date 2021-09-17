@@ -4,10 +4,10 @@ import {MediaServicePageActions, mediaServicePageFetcher, mediaServicePageReques
 import api from "../../../api/services";
 
 
-function* mediaServicePageHandler(): Generator<any> {
+function* mediaServicePageHandler(): Generator<{}> {
     try {
         yield put(mediaServicePageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.mediaService.fetchMediaServicePage);
+        const fetchPage: any = yield call(api.mediaService);
         if (fetchPage.data) {
             yield put(mediaServicePageFetcher({
                     status: RequestStatus.SUCCEED,

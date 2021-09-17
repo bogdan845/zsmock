@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {CoffeePageActions, coffeePageFetcher, coffeePageRequestStatus} from "./coffeePageActions";
 import api from "../../../api/services";
 
-function* carParkPagePageHandler(): Generator<any> {
+function* carParkPagePageHandler(): Generator<{}> {
     try {
         yield put(coffeePageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.coffee.fetchCoffeePage);
+        const fetchPage: any = yield call(api.coffee);
         if (fetchPage.data) {
             yield put(coffeePageFetcher({
                 status: RequestStatus.SUCCEED,

@@ -2,11 +2,13 @@ import {call, put, takeLatest} from "redux-saga/effects"
 import {singleOfferFetcher, SingleOfferActions, singleOfferRequestStatus} from "./singleOfferAction";
 import {RequestStatus} from "../../../request/requestStatus";
 import api from "../../../../api/services";
+import {Action} from "redux-actions";
+import {IFetchSingleOffer} from "../../../../api/specialOffers/singleOffer/settings";
 
-function* singleOfferHandler(action: any): Generator<any> {
+function* singleOfferHandler(action: Action<IFetchSingleOffer>): Generator<{}> {
     try {
         yield put(singleOfferRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPost: any = yield call(api.specialOffers.singleOffer.fetchSingleOffer, action.payload);
+        const fetchPost: any = yield call(api.specialOffers.singleOffer, action.payload);
         if (fetchPost.data) {
             yield put(singleOfferFetcher({
                 single: {

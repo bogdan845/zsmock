@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {PaymentPageActions, paymentPageFetcher, paymentPageRequestStatus} from "./paymentPageActions";
 import api from "../../../api/services";
 
-function* paymentPagePageHandler(): Generator<any> {
+function* paymentPagePageHandler(): Generator<{}> {
     try {
         yield put(paymentPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.payment.fetchPaymentPage);
+        const fetchPage: any = yield call(api.payment);
         if (fetchPage.data) {
             yield put(paymentPageFetcher({
                 status: RequestStatus.SUCCEED,

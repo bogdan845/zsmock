@@ -1,53 +1,55 @@
-import latestNews from "../news/latest";
-import singlePost from "../news/singlePost"
-import blog from "../news/blog"
-import offers from "../specialOffers/offers";
-import singleOffer from "../specialOffers/singleOffer"
-import vacancies from "../vacancies/";
-import contacts from "../contacts";
-import departurePlaces from "../departurePlaces";
-import aboutUs from "../aboutUs";
-import busService from "../busService";
-import mediaService from "../mediaService";
-import frequentlyQ from "../frequentlyQ";
-import carPark from "../carPark"
-import interFlights from "../interFlitghs";
-import vipAuto from "../vipAuto";
-import support from "../support";
-import drivers from "../drivers";
-import waitingHall from "../waitingHall";
-import coffee from "../coffee";
-import payment from "../payment";
-import tickets from "../serchTickets/tickets";
+import {fetchLatestNews} from "../news/latest/settings";
+import {fetchAllNews} from "../news/blog/settings";
+import {fetchOffers} from "../specialOffers/offers/settings";
+import {fetchSingleOffer} from "../specialOffers/singleOffer/settings";
+import {fetchContactPage} from "../contacts/settings";
+import {fetchDeparturePlacesPage} from "../departurePlaces/settings";
+import {fetchBusServicePage} from "../busService/settings";
+import {fetchMediaServicePage} from "../mediaService/settings";
+import {fetchCarParkPage} from "../carPark/settings";
+import {fetchInterFlightsPage} from "../interFlitghs/settings";
+import {fetchSupportPage} from "../ourSupport/settings";
+import {fetchVipAutoPage} from "../vipAuto/settings";
+import {fetchDriversPage} from "../drivers/settings";
+import {fetchCoffeePage} from "../coffee/settings";
+import {fetchPaymentPage} from "../payment/settings";
+import {fetchTickets} from "../tickets/availableTickets/settings";
+import {fetchAboutUsPage} from "../aboutUs/settings";
+import {fetchFrequentlyQ} from "../frequentlyQ/settings";
+import {fetchSinglePost} from "../news/singlePost/settings";
+import {fetchWaitingHallPage} from "../waitingHall/settings";
+import {fetchVacanciesPage} from "../vacancies/settings";
+import {fetchTicketsDirections} from "../tickets/directions/settings";
 
 
 const api = {
     news: {
-        latestNews,
-        singlePost,
-        blog,
+        latestNews: fetchLatestNews,
+        singlePost: fetchSinglePost,
+        blog: fetchAllNews,
     },
     specialOffers: {
-        offers,
-        singleOffer
+        offers: fetchOffers,
+        singleOffer: fetchSingleOffer
     },
-    aboutUs,
-    busService,
-    mediaService,
-    vacancies,
-    contacts,
-    frequentlyQ,
-    departurePlaces,
-    carPark,
-    interFlights,
-    vipAuto,
-    support,
-    drivers,
-    payment,
-    coffee,
-    waitingHall,
-    searchTickets: {
-        tickets,
+    aboutUs: fetchAboutUsPage,
+    busService: fetchBusServicePage,
+    mediaService: fetchMediaServicePage,
+    vacancies: fetchVacanciesPage,
+    contacts: fetchContactPage,
+    frequentlyQ: fetchFrequentlyQ,
+    departurePlaces: fetchDeparturePlacesPage,
+    carPark: fetchCarParkPage,
+    interFlights: fetchInterFlightsPage,
+    vipAuto: fetchVipAutoPage,
+    support: fetchSupportPage,
+    drivers: fetchDriversPage,
+    payment: fetchPaymentPage,
+    coffee: fetchCoffeePage,
+    waitingHall: fetchWaitingHallPage,
+    tickets: {
+        available: fetchTickets,
+        directions: fetchTicketsDirections
     },
 }
 

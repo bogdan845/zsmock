@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 import {MainScreen} from "../screens/MainScreen";
 import {AccScreen} from "../screens/AccScreen";
 import {PAGES_URL} from "../utils/constants/appNav/pages/pages";
-// for routing serchTickets
+// for routing tickets
 const isRegistered = false
 
 

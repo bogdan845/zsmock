@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {AboutUsPageActions, aboutUsPageFetcher, aboutUsPageRequestStatus} from "./aboutUsPageActions";
 import api from "../../../api/services";
 
-function* aboutUsPageHandler(): Generator<any> {
+function* aboutUsPageHandler(): Generator<{}> {
     try {
         yield put(aboutUsPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.aboutUs.fetchAboutUsPage);
+        const fetchPage: any = yield call(api.aboutUs);
         if (fetchPage.data) {
             yield put(aboutUsPageFetcher({
                     status: RequestStatus.SUCCEED,

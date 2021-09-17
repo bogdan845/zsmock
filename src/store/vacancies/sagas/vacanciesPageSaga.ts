@@ -4,10 +4,10 @@ import {VacanciesPageActions, vacanciesPageFetcher, vacanciesPageRequestStatus} 
 import api from "../../../api/services";
 
 
-function* vacanciesPageHandler(): Generator<any> {
+function* vacanciesPageHandler(): Generator<{}> {
     try {
         yield put(vacanciesPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.vacancies.fetchVacanciesPage);
+        const fetchPage: any = yield call(api.vacancies);
         if (fetchPage.data) {
             yield put(vacanciesPageFetcher({
                 status: RequestStatus.SUCCEED,

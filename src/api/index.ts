@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios, {AxiosPromise} from "axios";
 import {AxiosInstance} from "axios";
 
 const axiosInstance: AxiosInstance = axios.create();
 
-const get = (url: string, payload = {}): Promise<any> => {
+const get = (url: string, payload = {}): AxiosPromise => {
     return axiosInstance({
         method: "get",
         url,
@@ -11,18 +11,7 @@ const get = (url: string, payload = {}): Promise<any> => {
     });
 };
 
-const getTickets = (url: string, payload = {}): Promise<any> => {
-    return axiosInstance({
-        method: "post",
-        url,
-        data: payload,
-        headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6Mn0.t1QuIwtgHseF8zBGf8Ijb5LVcGOtE5jONoCBIC8QMgg",
-        }
-    })
-};
-
-const post = (url: string, payload = {}): Promise<any> => {
+const post = (url: string, payload = {}): AxiosPromise => {
     return axiosInstance({
         method: "post",
         url,
@@ -30,10 +19,20 @@ const post = (url: string, payload = {}): Promise<any> => {
     })
 };
 
+const availableDirections = (url: string, payload = {}): AxiosPromise => {
+    return axiosInstance({
+        method: "get",
+        url,
+    })
+};
 
-export {get, post, getTickets};
+const availableTickets = (url: string, payload = {}): AxiosPromise => {
+    return axiosInstance({
+        method: "post",
+        url,
+        data: payload,
+    })
+};
 
 
-
-
-
+export {get, post, availableTickets, availableDirections};

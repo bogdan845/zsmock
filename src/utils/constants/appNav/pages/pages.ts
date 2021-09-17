@@ -9,7 +9,7 @@ import {singlePost} from "../../../../store/news/sagas/singlePost/singlePostActi
 import {singlePostSelector} from "../../../../store/news/newsSelectors";
 import {singleOffer} from "../../../../store/specialOffers/sagas/singleOffer/singleOfferAction";
 import {singleOfferSelector} from "../../../../store/specialOffers/offersSelector";
-import {Support} from "../../../../pages/Support/Support";
+import {OurSupport} from "../../../../pages/OurSupport/OurSupport";
 import {Coffee} from "../../../../pages/Coffee/Coffee";
 import {Drivers} from "../../../../pages/Drivers/Drivers";
 import {Payment} from "../../../../pages/Payment/Payment";
@@ -36,7 +36,7 @@ export const PAGES_URL = {
         pagination: "/blog/page/:page",
     },
     benefits: "/benefits",
-    support: "/support",
+    support: "/ourSupport",
     coffee: "/coffee",
     drivers: "/experienced_drivers",
     payment: "/safe_payment",
@@ -94,7 +94,7 @@ export const PAGE_ROUTES: IPageRoutes[] = [
     {
         url: PAGES_URL.support,
         label: "",
-        component: Support
+        component: OurSupport
     },
     {
         url: PAGES_URL.coffee,

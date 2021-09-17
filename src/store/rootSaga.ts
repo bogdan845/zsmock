@@ -13,12 +13,13 @@ import {aboutUsPageSaga} from "./aboutUs/sagas/aboutUsPageSaga";
 import {carParkPageSaga} from "./carPark/sagas/carParkPageSaga";
 import {interFlightsPageSaga} from "./interFlights/sagas/interFlightsPageSaga";
 import {vipAutoPageSaga} from "./vipAuto/sagas/vipAutoPageSaga";
-import {supportPageSaga} from "./support/sagas/supportPageSaga";
+import {supportPageSaga} from "./ourSupport/sagas/supportPageSaga";
 import {coffeePageSaga} from "./coffee/sagas/coffeePageSaga";
 import {driversPageSaga} from "./dirvers/sagas/driversPageSaga";
 import {paymentPageSaga} from "./payment/sagas/paymentPageSaga";
 import {waitingHallPageSaga} from "./waitingHall/sagas/waitingHallPageSaga";
-import {ticketsSaga} from "./tickets/sagas/ticketsSaga";
+import {availableTicketsSaga} from "./tickets/available/sagas/availableTicketsSaga";
+import {ticketsDirectionSaga} from "./tickets/directions/sagas/ticketsDirectionsSaga";
 
 export default function* Saga() {
     yield all([
@@ -41,6 +42,7 @@ export default function* Saga() {
         driversPageSaga(),
         paymentPageSaga(),
         waitingHallPageSaga(),
-        ticketsSaga()
+        availableTicketsSaga(),
+        ticketsDirectionSaga(),
     ]);
 }

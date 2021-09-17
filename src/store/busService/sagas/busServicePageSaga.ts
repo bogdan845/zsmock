@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {BusServicePageActions, busServicePageFetcher, busServicePageRequestStatus} from "./busServicePageActions";
 import api from "../../../api/services";
 
-function* busServicePageHandler(): Generator<any> {
+function* busServicePageHandler(): Generator<{}> {
     try {
         yield put(busServicePageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.busService.fetchBusServicePage);
+        const fetchPage: any = yield call(api.busService);
         if (fetchPage.data) {
             yield put(busServicePageFetcher({
                     status: RequestStatus.SUCCEED,

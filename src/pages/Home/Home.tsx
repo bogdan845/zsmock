@@ -3,12 +3,12 @@ import React from 'react';
 /*
 * images
 * */
-import {Offers} from "./Layouts/Offers/Offers";
-import {CarParkBlock} from "./Layouts/CarPark/CarPark";
-import {Services} from "./Layouts/Services/Services";
-import {LatestNews} from "./Layouts/LatestNews/LatestNews";
-import {OurBenefits} from "./Layouts/OurBenefits/OurBenefits";
-import {Tickets} from "./Layouts/Tickets/Tickets";
+import {Offers} from "./components/Offers/Offers";
+import {CarParkBlock} from "./components/CarPark/CarPark";
+import {OurServices} from "./components/OurServices/OurServices";
+import {LatestNews} from "./components/LatestNews/LatestNews";
+import {OurBenefits} from "./components/OurBenefits/OurBenefits";
+import {Tickets} from "./components/Tickets/Tickets";
 
 
 export function Home() {
@@ -17,7 +17,7 @@ export function Home() {
             <Tickets/>
             <Offers/>
             <CarParkBlock/>
-            <Services/>
+            <OurServices/>
             <LatestNews/>
             <OurBenefits/>
         </>

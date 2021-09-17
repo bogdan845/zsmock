@@ -29,7 +29,7 @@ export const HOME_EN = {
     benefits: {
         label: "Our benefits",
         iconsLabel: {
-            support: "Support 24 / 7",
+            support: "OurSupport 24 / 7",
             carPark: "Modern car park",
             payment: "Safety payment",
             transportation: "European transportation quality",

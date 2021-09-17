@@ -3,10 +3,10 @@ import {RequestStatus} from "../../../request/requestStatus";
 import {offersFetcher, OffersActions, offersRequestStatus} from "./offersActions";
 import api from "../../../../api/services";
 
-function* specialOffersHandler(): Generator<any> {
+function* specialOffersHandler(): Generator<{}> {
     try {
         yield put(offersRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPosts: any = yield call(api.specialOffers.offers.fetchOffers);
+        const fetchPosts: any = yield call(api.specialOffers.offers);
         if (fetchPosts.data) {
             yield put(offersFetcher({
                 blog: {

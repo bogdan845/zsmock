@@ -11,7 +11,7 @@ import {aboutUsReducer} from "./aboutUs/aboutUsReducer";
 import {carParkReducer} from "./carPark/carParkReducer";
 import {interFlightsReducer} from "./interFlights/interFlightsReducer";
 import {vipAutoReducer} from "./vipAuto/vipAutoReducer";
-import {supportReducer} from "./support/supportReducer";
+import {supportReducer} from "./ourSupport/supportReducer";
 import {coffeeReducer} from "./coffee/coffeeReducer";
 import {driversReducer} from "./dirvers/driversReducer";
 import {paymentReducer} from "./payment/paymentReducer";
@@ -35,7 +35,7 @@ export interface IRootState {
     drivers: IPage;
     payment: IPage;
     waitingHall: IPage;
-    tickets: ITicketsState
+    tickets: ITicketsState,
 };
 
 
@@ -56,5 +56,5 @@ export const rootReducer = combineReducers({
     drivers: driversReducer,
     waitingHall: waitingHallReducer,
     payment: paymentReducer,
-    searchTickets: ticketsReducer
+    tickets: ticketsReducer
 });

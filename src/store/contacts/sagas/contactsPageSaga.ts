@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {ContactsPageActions, contactsPageFetcher, contactsPageRequestStatus} from "./contactsPageActions";
 import api from "../../../api/services";
 
-function* contactsPageHandler(): Generator<any> {
+function* contactsPageHandler(): Generator<{}> {
     try {
         yield put(contactsPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.contacts.fetchContactPage);
+        const fetchPage: any = yield call(api.contacts);
         if (fetchPage.data) {
             yield put(contactsPageFetcher({
                     status: RequestStatus.SUCCEED,

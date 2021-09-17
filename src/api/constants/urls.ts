@@ -1,18 +1,10 @@
 const BACKEND_API = "https://app.zs7.com.ua/BusScheduler/site";
 const WORDPRESS_API = 'https://zs7.com.ua/wp-json/wp/v2'
-// const WORDPRESS_STYLES = "http://zs7.com.ua/wp-content/uploads/elementor/css/";
-
-
-// {{zs7}}/wp-content/uploads/elementor/css/post-3025.css?Origin=https://zs7.com.ua&Host=app.zs7.com.ua&Referer=https://zs7.com.ua
-
-// {{zs7}}/wp-content/uploads/elementor/css/post-3025.css
-// post-3025.css
-
 
 export const APP_URLS = {
-    searchTickets: {
-        tickets: BACKEND_API + "/mobile/ticket/search",
-        routes: BACKEND_API + "/mobile/place/all"
+    tickets: {
+        available: BACKEND_API + "/mobile/ticket/search",
+        directions: BACKEND_API + "/mobile/place/all",
     },
     pages: {
         aboutUs: {

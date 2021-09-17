@@ -7,7 +7,7 @@ import {SinglePostView} from "./Layout/SinglePostView";
 
 interface IProps {
     pageAction: (slug: string) => ReducerAction<any>
-    selector: any
+    selector: any;
 }
 
 interface ISlug {

@@ -1,4 +1,4 @@
-import React, {SetStateAction, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import htmlReactParser from "html-react-parser";
 import {useDispatch} from "react-redux";
 import {useSelector} from "react-redux";
@@ -7,7 +7,6 @@ import {FrequentlyQListModel} from "../../utils/models/FrequentlyQ/FrequentlyQLi
 import {frequentlyQPageSelector} from "../../store/frequentlyQ/frequentlyQSelector";
 import {Page, PageInner} from "../../components/Repeatable/PageView/PageView";
 import {GoChevronRight} from "react-icons/go";
-import {CSSTransition, TransitionGroup} from "react-transition-group";
 import styled from "styled-components";
 
 
@@ -22,7 +21,7 @@ const ListItem = styled.div`
 
 export function FrequentlyQ() {
     const [opened, setOpened] = useState(0);
-    const toggle = (index: any) => () => {
+    const toggle = (index: number) => () => {
         if (opened === index) {
             return setOpened(() => -1)
         }

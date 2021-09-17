@@ -3,7 +3,7 @@ import {IOurBenefits} from "../../interfaces/ourBenefits/ourBenefits";
 export const OUR_BENEFITS: IOurBenefits[] = [
     {
         label: "support",
-        link: "/support",
+        link: "/ourSupport",
         icon: "bi bi-telephone-fill",
     },
     {

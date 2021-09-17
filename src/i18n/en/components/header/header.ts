@@ -3,16 +3,16 @@ export const HEADER_EN = {
         home: {
             label: "Home",
             dropDown: {
-                busServices: "Bus Services",
-                mediaServices: "Media Services"
+                busServices: "Bus OurServices",
+                mediaServices: "Media OurServices"
             }
         },
 
         aboutUs: {
             label: "About Us",
             dropDown: {
-                busServices: "Bus Services",
-                mediaServices: "Media Services"
+                busServices: "Bus OurServices",
+                mediaServices: "Media OurServices"
             }
         },
 

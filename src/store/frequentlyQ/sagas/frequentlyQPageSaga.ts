@@ -7,10 +7,10 @@ import {
 } from "./frequentlyQPageActions";
 import api from "../../../api/services";
 
-function* contactsPageHandler(): Generator<any> {
+function* contactsPageHandler(): Generator<{}> {
     try {
         yield put(frequentlyQPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.frequentlyQ.fetchFrequentlyQ);
+        const fetchPage: any = yield call(api.frequentlyQ);
         if (fetchPage.data) {
             yield put(frequentlyQPageFetcher({
                 status: RequestStatus.SUCCEED,

@@ -4,10 +4,10 @@ import {VipAutoPageActions, vipAutoPageFetcher, vipAutoPageRequestStatus} from "
 import api from "../../../api/services";
 
 
-function* vipAutoPageHandler(): Generator<any> {
+function* vipAutoPageHandler(): Generator<{}> {
     try {
         yield put(vipAutoPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.vipAuto.fetchVipAutoPage);
+        const fetchPage: any = yield call(api.vipAuto);
         if (fetchPage.data) {
             yield put(vipAutoPageFetcher({
                 status: RequestStatus.SUCCEED,

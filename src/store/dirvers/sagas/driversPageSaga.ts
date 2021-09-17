@@ -3,10 +3,10 @@ import {RequestStatus} from "../../request/requestStatus";
 import {DriversPageActions, driversPageFetcher, driversPageRequestStatus} from "./driversPageActions";
 import api from "../../../api/services";
 
-function* carParkPagePageHandler(): Generator<any> {
+function* carParkPagePageHandler(): Generator<{}> {
     try {
         yield put(driversPageRequestStatus({status: RequestStatus.LOADING}));
-        const fetchPage: any = yield call(api.drivers.fetchDriversPage);
+        const fetchPage: any = yield call(api.drivers);
         if (fetchPage.data) {
             yield put(driversPageFetcher({
                 status: RequestStatus.SUCCEED,

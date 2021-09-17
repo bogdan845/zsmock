@@ -1,6 +1,5 @@
 import {handleActions} from "redux-actions";
 import {RequestStatus, RequestType} from "../request/requestStatus";
-// import {PostPreviewModel} from "../../utils/models/Post/Preview";
 import {LatestNewsActions} from "./sagas/latest/latestNewsActions";
 import {SinglePostActions} from "./sagas/singlePost/singlePostActions";
 import {SinglePostModel} from "../../utils/models/Post/SingleView";
