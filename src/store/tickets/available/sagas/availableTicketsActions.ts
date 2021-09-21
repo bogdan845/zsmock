@@ -15,7 +15,7 @@ export enum AvailableTicketsActions {
 
 export const availableTicketsRequestStatus = createAction(
     AvailableTicketsActions.AVAILABLE_TICKETS_REQUEST_STATUS,
-    (payload: TicketsRequestStatus) => payload
+    (payload: { available: TicketsRequestStatus }) => payload
 );
 
 export const availableTicketsFetcher = createAction(

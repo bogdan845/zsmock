@@ -1,23 +1,24 @@
 import React from "react";
 import htmlReactParser from "html-react-parser";
-import styled from "styled-components";
-import {Page, PageInner} from "../../PageView/PageView";
+// import styled from "styled-components";
+import styled from 'styled-components/macro'
+import {Wrapper, InnerWrapper} from "../../PageView/PageView";
 
 
-const PostTitle = styled.h2`
+const Title = styled.h2`
     padding: 0 0 1.25rem;
 `;
 
-const PostDate = styled.span`
+const Date = styled.span`
     font-size: 0.875rem;
     display: inline-block;
     margin-bottom: 1.25rem; 
     font-style: italic;
 `;
 
-const PostImg = styled.img`
+const Img = styled.img`
     max-height: 400px;
-    width: auto;
+    max-width: 100%;
     display: block;
     margin: 0 auto 20px;
 `;
@@ -36,14 +37,14 @@ export function SinglePostView({title, date, img, content}: IProps) {
         <div className="container py-3">
             <div className="row">
                 <div className="col-12">
-                    <Page>
-                        <PageInner>
-                            <PostTitle>{title}</PostTitle>
-                            <PostDate>Від: {date}</PostDate>
-                            <PostImg src={img} alt=""/>
+                    <Wrapper>
+                        <InnerWrapper>
+                            <Title>{title}</Title>
+                            <Date>Від: {date}</Date>
+                            <Img src={img} alt=""/>
                             {content ? htmlReactParser(content) : ''}
-                        </PageInner>
-                    </Page>
+                        </InnerWrapper>
+                    </Wrapper>
                 </div>
             </div>
         </div>

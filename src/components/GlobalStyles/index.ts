@@ -5,10 +5,10 @@ import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-  
-  /*
-  * COLORS
-  */
+
+    /*
+    * COLORS
+    */
     --green: #22892D;
     --light_green: #1EA84E;
     --pale_green: #709880;
@@ -18,41 +18,41 @@ export const GlobalStyles = createGlobalStyle`
     --grey: #4B4E4C;
     --light-grey: #e3e3e3;
     --text-color: #4B4E4C;
-    
+
     /*
     * GUTTERS
     */
     --gutter: 0.938rem;
-    
-    
+
+
     /*
     * TYPOGRAPHY
     */
     font-size: 16px;
-    
+
     h1, .h1 {
-        font-size: 3.125rem;
+      font-size: 3.125rem;
     }
 
     h2, .h2 {
-        font-size: 2.625rem;
+      font-size: 2.625rem;
     }
 
     h3, .h3 {
-        font-size: 2.188rem;
+      font-size: 2.188rem;
     }
 
     h4, .h4 {
-        font-size: 1.75rem;
+      font-size: 1.75rem;
     }
 
     h5, .h5 {
-        font-size: 1.375rem;
+      font-size: 1.375rem;
     }
 
     h6, .h6 {
-        font-size: 1rem;
-    } 
+      font-size: 1rem;
+    }
   }
 `;
 

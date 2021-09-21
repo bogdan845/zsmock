@@ -12,7 +12,7 @@ export enum SinglePostActions {
 
 export const singlePostRequestStatus = createAction(
     SinglePostActions.SINGLE_POST_REQUEST_STATUS,
-    (payload: SinglePostStatus) => payload
+    (payload: { singlePost: SinglePostStatus }) => payload
 );
 
 export const singlePostFetcher = createAction(

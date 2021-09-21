@@ -3,13 +3,13 @@ import {SectionTitleLink} from "../../SectionTitleLink/SectionTitleLink";
 import styled from "styled-components";
 
 
-const ImgBannerWrapper = styled.div`
+const ImgWrapper = styled.div`
     position: relative;
     text-align: center;
  `;
 
 
-const ImgTitleBox = styled.div`
+const ImgTitle = styled.div`
     position: absolute;
     top: 0;
     left: 0;
@@ -42,7 +42,7 @@ const Img = styled.img`
 `
 
 
-export enum BannerSize {
+export enum ImgSize {
     contain = "contain",
     cover = "cover",
 }
@@ -53,27 +53,27 @@ interface IProps {
     labelLink?: string;
     label?: string;
     labelColor?: string
-    bannerSize?: BannerSize.contain | BannerSize.cover
+    imgSize?: ImgSize.contain | ImgSize.cover
 }
 
 
-export function ImgBanner(props: IProps) {
+export function BannerImg(props: IProps) {
     return (
-        <ImgBannerWrapper>
+        <ImgWrapper>
             {props.label
-                ? <ImgTitleBox>
+                ? <ImgTitle>
                     <SectionTitleLink
                         label={props.label}
                         link={props.labelLink}
                         color={props.labelColor}
                     />
-                </ImgTitleBox>
+                </ImgTitle>
                 : null}
             <Img
-                className={`${props.bannerSize ? props.bannerSize : BannerSize.contain}`}
+                className={`${props.imgSize ? props.imgSize : ImgSize.contain}`}
                 src={props.img}
                 alt=""
             />
-        </ImgBannerWrapper>
+        </ImgWrapper>
     )
 }

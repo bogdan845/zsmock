@@ -7,7 +7,7 @@ const get = (url: string, payload = {}): AxiosPromise => {
     return axiosInstance({
         method: "get",
         url,
-        data: payload
+        data: payload,
     });
 };
 
@@ -19,7 +19,7 @@ const post = (url: string, payload = {}): AxiosPromise => {
     })
 };
 
-const availableDirections = (url: string, payload = {}): AxiosPromise => {
+const availableDirections = (url: string): AxiosPromise => {
     return axiosInstance({
         method: "get",
         url,

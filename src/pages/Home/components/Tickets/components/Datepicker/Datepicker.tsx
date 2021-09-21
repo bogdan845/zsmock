@@ -4,18 +4,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
 import {FieldHookConfig, useField, useFormikContext} from "formik";
 
-const DatePickerWrapper = styled.div`
-    // margin-top: 2.5rem;
-    // padding: 0 var(--gutter);
-`;
+const DatePickerWrapper = styled.div``;
 
 const StyledDatepicker = styled(DatePicker)`
-    border: none;
-    outline: none;
-    padding: 15px 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: var(--text-color);
+  border: none;
+  outline: none;
+  padding: 15px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
 `;
 
 interface IProps {

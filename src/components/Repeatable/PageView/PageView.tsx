@@ -3,11 +3,11 @@ import domToReact from "html-react-parser/lib/dom-to-react";
 import styled from "styled-components";
 import {SectionTitle} from "../SectionTitle/SectionTitle";
 
-export const Page = styled.section`
+export const Wrapper = styled.section`
     padding: 20px
 `;
 
-export const PageInner = styled.div`
+export const InnerWrapper = styled.div`
     background-color: var(--light-grey);
     margin-left: auto;
     margin-right: auto;
@@ -16,7 +16,7 @@ export const PageInner = styled.div`
     border-radius: 7px;
 `;
 
-export const PageImg = styled.img`
+export const Img = styled.img`
     max-height: 250px;
     width: auto;
     display: block;
@@ -31,8 +31,8 @@ interface IProps {
 
 export function PageView({content, title, img}: IProps) {
     return (
-        <Page>
-            <PageInner>
+        <Wrapper>
+            <InnerWrapper>
                 {title
                     ? <SectionTitle
                         color={"var(--text-color)"}
@@ -40,10 +40,10 @@ export function PageView({content, title, img}: IProps) {
                         textAlign={"left"}
                     />
                     : null}
-                {img ? <PageImg src={img} alt={""}/> : null}
+                {img ? <Img src={img} alt={""}/> : null}
                 {content}
-            </PageInner>
-        </Page>
+            </InnerWrapper>
+        </Wrapper>
     )
 }
 

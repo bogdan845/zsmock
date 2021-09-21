@@ -32,8 +32,17 @@ const initialState = {
 
 
 export const ticketsReducer = handleActions({
+    [AvailableTicketsActions.AVAILABLE_TICKETS_REQUEST_STATUS]: (state, {payload}) => {
+        return ({
+            ...state,
+            available: {
+                status: payload.available.status,
+                tickets: []
+            }
+        })
+    },
+
     [AvailableTicketsActions.FETCH_AVAILABLE_TICKETS]: (state, {payload}) => {
-        // console.log("tickets", payload)
         return ({
             ...state,
             available: {
@@ -44,7 +53,6 @@ export const ticketsReducer = handleActions({
     },
 
     [TicketsDirectionsActions.FETCH_TICKETS_DIRECTIONS]: (state, {payload}) => {
-        // console.log("directions", payload);
         return ({
             ...state,
             directions: {

@@ -11,7 +11,6 @@ import {useTranslation} from "react-i18next";
 import {TitleWrapper} from "../../../../components/Repeatable/TitleWrapper/TitleWrapper";
 import {Section} from "../../../../components/Repeatable/Section/Section";
 
-// const checkRerender = (prev: any, next: any) => prev.length === next.length;
 
 export function LatestNews() {
     const dispatch = useDispatch();
@@ -20,8 +19,8 @@ export function LatestNews() {
     useEffect(() => {
         dispatch(latestNews());
     }, [dispatch]);
-    //
-    const {posts /*, status*/} = useSelector(latestNewsSelector);
+
+    const {posts} = useSelector(latestNewsSelector);
 
     const renderPosts = posts && posts.length
         ? posts.map((item, index) => {

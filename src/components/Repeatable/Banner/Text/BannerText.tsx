@@ -5,16 +5,16 @@ import {BannerLink} from "../Link/BannerLink";
 import styled from "styled-components";
 
 
-const BannerWrapper = styled.div`
+const Wrapper = styled.div`
     text-align: center;
     font-size: 1.125rem;
     padding: calc(var(--gutter) * 2) var(--gutter);
 `;
 
 
-export function TextBanner(props: ITextBanner) {
+export function BannerText(props: ITextBanner) {
     return (
-        <BannerWrapper>
+        <Wrapper>
             <SectionTitleLink
                 color={props.labelColor}
                 label={props.label}
@@ -25,6 +25,6 @@ export function TextBanner(props: ITextBanner) {
                 label={props.btnLabel}
                 link={props.btnLink}
             />
-        </BannerWrapper>
+        </Wrapper>
     )
 }

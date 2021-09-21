@@ -13,7 +13,7 @@ type FetchBlogNews = Omit<INewsState, "singlePost" | "latestNews">;
 
 export const blogNewsRequestStatus = createAction(
     NewsBlogActions.NEWS_BLOG_REQUEST_STATUS,
-    (payload: NewsBlogRequestStatus) => payload
+    (payload: { blog: NewsBlogRequestStatus }) => payload
 );
 
 export const blogNewsFetcher = createAction(

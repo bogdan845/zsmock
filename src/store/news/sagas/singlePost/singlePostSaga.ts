@@ -1,17 +1,16 @@
 import {call, put, takeLatest} from "redux-saga/effects";
 import {RequestStatus} from "../../../request/requestStatus";
 import {SinglePostActions, singlePostFetcher, singlePostRequestStatus} from "./singlePostActions";
-import api from "../../../../api/services";
 import {Action} from "redux-actions";
-import {IFetchSingleOffer} from "../../../../api/specialOffers/singleOffer/settings";
+import api from "../../../../api/services";
 
 
-function* singlePostHandler(action: Action<IFetchSingleOffer>): Generator<{}> {
+function* singlePostHandler(action: Action<string>): Generator<{}> {
     try {
-        yield put(singlePostRequestStatus({status: RequestStatus.LOADING}));
+        yield put(singlePostRequestStatus({singlePost: {status: RequestStatus.LOADING}}));
         const fetchPost: any = yield call(api.news.singlePost, action.payload);
         if (fetchPost.data) {
-            yield put(singlePostRequestStatus({status: RequestStatus.SUCCEED}));
+            yield put(singlePostRequestStatus({singlePost: {status: RequestStatus.SUCCEED}}));
             yield put(singlePostFetcher({
                 singlePost: {
                     status: RequestStatus.SUCCEED,
@@ -20,7 +19,7 @@ function* singlePostHandler(action: Action<IFetchSingleOffer>): Generator<{}> {
             }))
         }
     } catch (err) {
-        yield put(singlePostRequestStatus({status: RequestStatus.FAILED}));
+        yield put(singlePostRequestStatus({singlePost: {status: RequestStatus.FAILED}}));
     }
 }
 

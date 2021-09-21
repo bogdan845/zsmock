@@ -4,7 +4,6 @@ import domToReact from "html-react-parser/lib/dom-to-react";
 
 
 const Title = styled.h2`
-  text-align: center;
   padding: 1.25rem 0;
   color: ${props => props.theme.main};
   text-align: ${props => props.theme.textAlign}

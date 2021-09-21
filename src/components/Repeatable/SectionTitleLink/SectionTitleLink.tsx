@@ -2,11 +2,11 @@ import React from 'react';
 import styled from "styled-components";
 
 
-const TitleWrap = styled.h2`
+const Wrapper = styled.h2`
   text-align: center;
 `;
 
-const TitleLink = styled.a`
+const Link = styled.a`
   text-decoration: none;
   position: relative;
   display: inline-block;
@@ -34,7 +34,7 @@ const TitleLink = styled.a`
   }
 `;
 
-TitleLink.defaultProps = {
+Link.defaultProps = {
     theme: {
         main: 'var(--green)'
     }
@@ -50,8 +50,8 @@ interface IProps {
 
 export function SectionTitleLink({color, label, link}: IProps) {
     return (
-        <TitleWrap>
-            <TitleLink theme={color ? {main: color} : ""} href={link ? link : ''}>{label}</TitleLink>
-        </TitleWrap>
+        <Wrapper>
+            <Link theme={color ? {main: color} : ""} href={link ? link : ''}>{label}</Link>
+        </Wrapper>
     )
 }

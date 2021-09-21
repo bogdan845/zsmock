@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 
-const TitleBox = styled.div`
+const Wrapper = styled.div`
     padding: 1.25rem var(--gutter);
     background: ${props => props.theme.main}
 `;
 
-TitleBox.defaultProps = {
+Wrapper.defaultProps = {
     theme: {
         main: "var(--green)"
     }
@@ -22,8 +22,8 @@ interface IProps {
 
 export function TitleWrapper({background, children}: IProps) {
     return (
-        <TitleBox theme={background ? {main: background} : ''}>
+        <Wrapper theme={background ? {main: background} : ''}>
             {children}
-        </TitleBox>
+        </Wrapper>
     )
 }

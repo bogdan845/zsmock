@@ -9,7 +9,7 @@ export enum Template {
     column = "column"
 }
 
-const PostPreviewBox = styled.article`
+const Wrapper = styled.article`
      width: 100%;
      margin: 0 auto;
      display: flex;
@@ -70,7 +70,7 @@ const Content = styled.div`
 
 const TitleWrapper = styled.h5`
     margin-bottom: 0.938rem;
-`
+`;
 
 const TitleLink = styled(Link)`
     text-decoration: none;
@@ -101,6 +101,7 @@ const TitleLink = styled(Link)`
     }
 `;
 
+
 const PostDate = styled.span`
     display: inline-block;
     margin-bottom: 0.625rem;
@@ -128,7 +129,7 @@ interface IProps {
 
 export function PostPreview({img, label, link, shortDescription, url, date, template}: IProps) {
     return (
-        <PostPreviewBox theme={template ? {template} : null}>
+        <Wrapper theme={template ? {template} : null}>
             <ImgLink to={url + "/" + link}>
                 <Img theme={template ? {template} : null} src={img} alt=""/>
                 <IconWrapper>
@@ -142,6 +143,6 @@ export function PostPreview({img, label, link, shortDescription, url, date, temp
                 {date ? <PostDate>Від: {date}</PostDate> : null}
                 {htmlReactParser(shortDescription)}
             </Content>
-        </PostPreviewBox>
+        </Wrapper>
     )
 }

@@ -2,12 +2,12 @@ import {call, put, takeLatest} from "redux-saga/effects";
 import {blogNewsFetcher, blogNewsRequestStatus, NewsBlogActions} from "./newsBlogActions";
 import api from "../../../../api/services";
 import {RequestStatus} from "../../../request/requestStatus";
-import {IFetchAllNews} from "../../../../api/news/blog/settings";
 import {Action} from "redux-actions";
 
-function* newsHandler(action: Action<IFetchAllNews>): Generator<{}> {
+
+function* newsHandler(action: Action<number>): Generator<{}> {
     try {
-        yield  put(blogNewsRequestStatus({status: RequestStatus.LOADING}));
+        yield  put(blogNewsRequestStatus({blog: {status: RequestStatus.LOADING}}));
         const fetchNews: any = yield call(api.news.blog, action.payload);
         if (fetchNews.data) {
             yield put(blogNewsFetcher({
@@ -19,7 +19,7 @@ function* newsHandler(action: Action<IFetchAllNews>): Generator<{}> {
             }))
         }
     } catch (err) {
-        yield put(blogNewsRequestStatus({status: RequestStatus.FAILED}))
+        yield put(blogNewsRequestStatus({blog: {status: RequestStatus.FAILED}}))
     }
 }
 

@@ -11,7 +11,7 @@ import {ITicketsRequest} from "../../../../api/tickets/availableTickets/settings
 
 export function* ticketsHandler(action: Action<ITicketsRequest>): Generator<{}> {
     try {
-        yield put(availableTicketsRequestStatus({status: RequestStatus.LOADING}));
+        yield put(availableTicketsRequestStatus({available: {status: RequestStatus.LOADING}}));
         const fetchTickets: any = yield call(api.tickets.available, action.payload)
         if (fetchTickets.data) {
             yield put(availableTicketsFetcher({
@@ -22,7 +22,7 @@ export function* ticketsHandler(action: Action<ITicketsRequest>): Generator<{}> 
             }))
         }
     } catch (err) {
-        yield put(availableTicketsRequestStatus({status: RequestStatus.FAILED}))
+        yield put(availableTicketsRequestStatus({available: {status: RequestStatus.FAILED}}))
     }
 }
 

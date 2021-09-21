@@ -1,8 +1,8 @@
 import React from "react";
 
 import girl from "../../../../assets/images/girl.png";
-import {ImgBanner} from "../../../../components/Repeatable/Banners/ImgBanner/ImgBanner";
-import {TextBanner} from "../../../../components/Repeatable/Banners/TextBanner/TextBanner";
+import {BannerImg} from "../../../../components/Repeatable/Banner/Image/BannerImg";
+import {BannerText} from "../../../../components/Repeatable/Banner/Text/BannerText";
 import {PAGES_URL} from "../../../../utils/constants/appNav/pages/pages";
 import {useTranslation} from "react-i18next";
 import {Section} from "../../../../components/Repeatable/Section/Section";
@@ -15,10 +15,10 @@ export function Offers() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-6">
-                        <ImgBanner img={girl}/>
+                        <BannerImg img={girl}/>
                     </div>
                     <div className="col-12 col-md-6 align-self-center">
-                        <TextBanner
+                        <BannerText
                             label={t("pages.home.specialOffers.label")}
                             labelLink={PAGES_URL.offers.offersPage}
                             text={t("pages.home.specialOffers.content")}

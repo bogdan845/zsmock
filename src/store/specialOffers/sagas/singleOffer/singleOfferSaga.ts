@@ -3,9 +3,8 @@ import {singleOfferFetcher, SingleOfferActions, singleOfferRequestStatus} from "
 import {RequestStatus} from "../../../request/requestStatus";
 import api from "../../../../api/services";
 import {Action} from "redux-actions";
-import {IFetchSingleOffer} from "../../../../api/specialOffers/singleOffer/settings";
 
-function* singleOfferHandler(action: Action<IFetchSingleOffer>): Generator<{}> {
+function* singleOfferHandler(action: Action<string>): Generator<{}> {
     try {
         yield put(singleOfferRequestStatus({status: RequestStatus.LOADING}));
         const fetchPost: any = yield call(api.specialOffers.singleOffer, action.payload);

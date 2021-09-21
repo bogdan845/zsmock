@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import {frequentlyQPage} from "../../store/frequentlyQ/sagas/frequentlyQPageActions";
 import {FrequentlyQListModel} from "../../utils/models/FrequentlyQ/FrequentlyQListModel";
 import {frequentlyQPageSelector} from "../../store/frequentlyQ/frequentlyQSelector";
-import {Page, PageInner} from "../../components/Repeatable/PageView/PageView";
+import {Wrapper, InnerWrapper} from "../../components/Repeatable/PageView/PageView";
 import {GoChevronRight} from "react-icons/go";
 import styled from "styled-components";
 
@@ -55,12 +55,12 @@ export function FrequentlyQ() {
         : null
 
     return (
-        <Page>
-            <PageInner>
+        <Wrapper>
+            <InnerWrapper>
                 <List>
                     {renderList}
                 </List>
-            </PageInner>
-        </Page>
+            </InnerWrapper>
+        </Wrapper>
     )
 }

@@ -1,8 +1,8 @@
 import React from "react";
-import {HeaderLogo} from "./Layouts/HeanderLogo/HeaderLogo.";
+import {HeaderLogo} from "./components/HeanderLogo/HeaderLogo.";
 import logo from "./../../assets/images/logo.png"
-import {Login} from "./Layouts/Login/Login";
-import {TopNav} from "./Layouts/Nav/Nav";
+import {Login} from "./components/Login/Login";
+import {TopNav} from "./components/Nav/Nav";
 import styled from "styled-components";
 
 

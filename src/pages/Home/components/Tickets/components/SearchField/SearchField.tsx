@@ -9,7 +9,6 @@ const FieldWrapper = styled.div`
     
     input {
         width: 100%; 
-        color: #000;
         border: none;
         outline: none;
         padding: 15px 10px;
@@ -26,7 +25,7 @@ const List = styled.ul`
     background-color: #fff;
     border-radius: 5px;
     margin-top: 5px;
-    max-height: 100px;
+    max-height: 150px;
     overflow-y: auto;
     border: 1px solid rgba(0,0,0,0.1);
     padding: 5px 0;
@@ -73,7 +72,8 @@ export function SearchField(props: IProps) {
     // render suggestions (autocomplete)
     const dataFilter = (value: string) => {
         const filteredValues = data.filter((item, index) => {
-            return !value ? "" : !item.label.indexOf(value);
+            // return !value ? "" : !item.label.indexOf(value);
+            return !item.label.indexOf(value);
         })
         setSuggests((): SetStateAction<any> => filteredValues);
     };

@@ -30,7 +30,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Alignments
 # Clearings
 # Widgets
-# Content
+# Shimmer
 	## Posts and pages
 	## Comments
 # Infinite scroll
@@ -829,7 +829,7 @@ a:hover, a:active {
 }
 
 /*--------------------------------------------------------------
-# Content
+# Shimmer
 --------------------------------------------------------------*/
 
 .site-header {

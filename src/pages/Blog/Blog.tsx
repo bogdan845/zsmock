@@ -10,46 +10,50 @@ import {Section} from "../../components/Repeatable/Section/Section";
 import {ImArrowRight, ImArrowLeft} from "react-icons/im";
 import styled from "styled-components";
 import {PAGES_URL} from "../../utils/constants/appNav/pages/pages";
+import {RequestStatus} from "../../store/request/requestStatus";
+import {Shimmer} from "../../components/Repeatable/Loader/Shimmer/Shimmer";
 
 
 interface IBlogUrlParams {
     page: string
 }
 
+
 const PaginationBox = styled.div`
-    display: flex;
-    flex-flow: row no-wrap;
-    justify-content: space-between;
-    width: 120px;
-    margin: 0 auto;
-    
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 120px;
+  margin: 0 auto;
 `;
 
 const PaginationBtn = styled.a`
-    text-decoration: none;
-    color: var(--text-color);  
-    
-    &:hover {
-        color: var(--green);
-    }
+  text-decoration: none;
+  color: var(--text-color);
+
+  &:hover {
+    color: var(--green);
+  }
 `;
+
 const DisabledPaginationBtn = styled.button`
-    color: var(--text-color);
-    cursor: not-allowed;
-    border: none;
-    outline: none;
-    padding: 0;
-`
+  color: var(--text-color);
+  cursor: not-allowed;
+  border: none;
+  outline: none;
+  padding: 0;
+`;
 
 
 export function Blog() {
     const {page}: IBlogUrlParams = useParams();
     const dispatch = useDispatch();
     const [currentPage, setCurrentPage] = useState(page ? Number(page) : 1);
+
     useEffect(() => {
         dispatch(blogNews(currentPage));
     }, [dispatch, currentPage, page])
-    const {posts, maxPages} = useSelector(newsSelector);
+    const {posts, maxPages, status} = useSelector(newsSelector);
 
     /*
     * pagination start
@@ -67,7 +71,6 @@ export function Blog() {
             dispatch(blogNews(Number(page)))
         }
     }
-
     /*
     * pagination end
     * */
@@ -81,7 +84,7 @@ export function Blog() {
                     <PostPreview
                         template={Template.inline}
                         img={post.img}
-                        url={PAGES_URL.news.single}
+                        url={PAGES_URL.news.newsPage}
                         link={post.link}
                         date={post.date}
                         label={post.title}
@@ -94,31 +97,36 @@ export function Blog() {
 
 
     return (
-        <Section padding={"0 0 3rem"}>
-            <SectionTitle label={"Новини"}/>
-            <div className="container pt-5 pb-2">
-                <div className="row">
-                    {renderPosts}
-                </div>
-            </div>
-            <PaginationBox>
-                {currentPage - 1 > 0
-                    ? <PaginationBtn href={page
-                        ? PAGES_URL.news.newsPage + "/page/" + (Number(page) - 1)
-                        : PAGES_URL.news.newsPage + "/page/1"}
-                                     onClick={prevPageHandler}><ImArrowLeft/> Prev</PaginationBtn>
-                    : <DisabledPaginationBtn disabled><ImArrowLeft/> Prev</DisabledPaginationBtn>
-                }
-                {Number(maxPages) - currentPage > 0
-                    ? <PaginationBtn href={page
-                        ? PAGES_URL.news.newsPage + "/page/" + (Number(page) + 1)
-                        : PAGES_URL.news.newsPage + "/page/2"}
-                                     onClick={nextPageHandler}>Next <ImArrowRight/>
-                    </PaginationBtn>
-                    : <DisabledPaginationBtn disabled>Next <ImArrowRight/></DisabledPaginationBtn>
-                }
-            </PaginationBox>
-        </Section>
+        <>
+            {status === RequestStatus.LOADING ? <Shimmer/> : ""}
+            {status === RequestStatus.SUCCEED
+                ? <Section padding={"0 0 3rem"}>
+                    <SectionTitle label={"Новини"}/>
+                    <div className="container pt-5 pb-2">
+                        <div className="row">
+                            {renderPosts}
+                        </div>
+                    </div>
+                    <PaginationBox>
+                        {currentPage - 1 > 0
+                            ? <PaginationBtn href={page
+                                ? PAGES_URL.news.newsPage + "/page/" + (Number(page) - 1)
+                                : PAGES_URL.news.newsPage + "/page/1"}
+                                             onClick={prevPageHandler}><ImArrowLeft/> Prev</PaginationBtn>
+                            : <DisabledPaginationBtn disabled><ImArrowLeft/> Prev</DisabledPaginationBtn>
+                        }
+                        {Number(maxPages) - currentPage > 0
+                            ? <PaginationBtn href={page
+                                ? PAGES_URL.news.newsPage + "/page/" + (Number(page) + 1)
+                                : PAGES_URL.news.newsPage + "/page/2"}
+                                             onClick={nextPageHandler}>Next <ImArrowRight/>
+                            </PaginationBtn>
+                            : <DisabledPaginationBtn disabled>Next <ImArrowRight/></DisabledPaginationBtn>
+                        }
+                    </PaginationBox>
+                </Section>
+                : ""
+            }
+        </>
     )
 }
-
